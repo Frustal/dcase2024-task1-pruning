@@ -1,0 +1,47 @@
+[project]
+name = "thesis-pruning-dcase2024"
+version = "0.1.0"
+description = "Neural network pruning for DCASE 2024 Task 1 acoustic scene classification"
+readme = "README.md"
+requires-python = ">=3.10"
+dependencies = [
+    "torch>=2.0.0",
+    "torchaudio>=2.0.0",
+    "torchvision>=0.15.0",
+    "pytorch-lightning>=2.0.0",
+    "torchinfo",
+    "transformers",
+    "pandas",
+    "scikit-learn",
+    "wandb",
+    "psutil",
+    "matplotlib",
+    "av",
+    "h5py",
+    "sox",
+    "soundfile",
+]
+
+[tool.uv]
+package = false
+
+[tool.uv.sources]
+torch = { index = "pytorch-cu121" }
+torchvision = { index = "pytorch-cu121" }
+torchaudio = { index = "pytorch-cu121" }
+
+[[tool.uv.index]]
+name = "pytorch-cu121"
+url = "https://download.pytorch.org/whl/cu121"
+explicit = true
+
+[dependency-groups]
+dev = [
+    "pytest>=9.1.1",
+]
+
+[tool.pytest.ini_options]
+# uv is configured with package = false, so the repo is never installed into the venv and
+# `import baseline` / `import pruning` would fail from tests/. Put the repo root on sys.path.
+pythonpath = ["."]
+testpaths = ["tests"]

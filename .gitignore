@@ -1,0 +1,34 @@
+# Data and trained artifacts (too large for git, and reproducible from the configs)
+data/
+checkpoints/
+cache/
+*.ckpt
+*.pt
+*.pth
+
+# Generated at import time by training/dataset_loader.py
+training/_generated_dcase24.py
+
+# Experiment tracking
+wandb/
+mlruns/
+*.db
+
+# Python
+__pycache__/
+*.py[cod]
+.venv/
+venv/
+.pytest_cache/
+*.egg-info/
+
+# Secrets
+*.pem
+*.key
+.env
+
+# Editors and OS
+.vscode/
+.idea/
+.DS_Store
+Thumbs.db
