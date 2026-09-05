@@ -1,0 +1,54 @@
+# Dense reference at base_channels=24 (35,062 params / 68.48 KB fp16), from the width sweep
+# that extends the dense reference curve below 47 KB.
+#
+# base_channels is the usable width knob, not channels_multiplier: the stem and stage 0 are
+# base_channels * cm^0 and ignore cm entirely, and the deeper stages hit make_divisible's floor
+# of 8 almost at once, so neighbouring cm values collapse onto one architecture. base_channels
+# is the width UNIT (stage i = base_channels * cm^i), so lowering it thins every stage in
+# proportion, keeps depth and stage ratios identical, and stays on the same divisor-8 grid as
+# the pruned models.
+#
+# Distinct widths are {32, 24, 16, 8}; base=12 collapses into 16, base=32 is the baseline. The
+# sweep points (68.48 / 36.38 / 11.18 KB) bracket the curves' deepest levels (33.82, 22.41 KB)
+# without hitting them: an interpolatable reference curve, not a head-to-head size match.
+project_name: DCASE24_Task1
+experiment_name: scale-down-base24
+
+# dataset
+dataset_path: data/tau_scenes_dataset
+orig_sample_rate: 44100
+subset: 25
+
+# model -- cm held at the baseline's 1.8; only base_channels moves
+n_classes: 10
+in_channels: 1
+base_channels: 24
+channels_multiplier: 1.8
+expansion_rate: 2.1
+
+# training
+n_epochs: 150
+batch_size: 256
+lr: 0.005
+warmup_steps: 2000
+weight_decay: 0.0001
+
+# augmentation
+mixstyle_p: 0.4
+mixstyle_alpha: 0.3
+roll_sec: 0.1
+
+# mel spectrogram
+sample_rate: 32000
+window_length: 3072
+hop_length: 500
+n_fft: 4096
+n_mels: 256
+freqm: 48
+timem: 0
+f_min: 0
+f_max: ~
+
+# system
+num_workers: 8
+precision: "32"

@@ -1,0 +1,45 @@
+# Dense reference at cm=0.5 (24,140 params / 47.15 KB fp16). Trained from scratch at a size the
+# pruning curves also reach, so a pruned model can be compared against an equally sized dense
+# one. Width here comes from channels_multiplier, which has limited range on CP-Mobile; see
+# scale_down_base16.yaml for why base_channels is the better knob below this size.
+project_name: DCASE24_Task1
+experiment_name: scale-down-cm0.5
+
+# dataset
+dataset_path: data/tau_scenes_dataset
+orig_sample_rate: 44100
+subset: 25
+
+# model
+n_classes: 10
+in_channels: 1
+base_channels: 32
+channels_multiplier: 0.5
+expansion_rate: 2.1
+
+# training
+n_epochs: 150
+batch_size: 256
+lr: 0.005
+warmup_steps: 2000
+weight_decay: 0.0001
+
+# augmentation
+mixstyle_p: 0.4
+mixstyle_alpha: 0.3
+roll_sec: 0.1
+
+# mel spectrogram
+sample_rate: 32000
+window_length: 3072
+hop_length: 500
+n_fft: 4096
+n_mels: 256
+freqm: 48
+timem: 0
+f_min: 0
+f_max: ~
+
+# system
+num_workers: 8
+precision: "32"

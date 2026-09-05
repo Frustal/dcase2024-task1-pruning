@@ -1,0 +1,62 @@
+# Exact-size dense reference for the deepest pruned point (11,482 params / 22.43 KB fp16).
+#
+# THIS CONFIG FAILED AT ITS PURPOSE. Do not report it as the dense reference at 22.41 KB and do
+# not re-run it expecting one. It scored 0.4129 macro accuracy, 4.09 pp below base=8/cm=1.8 at
+# 5,722 params (0.4538): twice the parameters for four points less accuracy, collapsing on the
+# confusable indoor-transport classes (metro_station 0.1017, metro 0.1953, tram 0.2453). Use
+# the base_channels curve interpolated to 22.41 KB instead.
+#
+# Why it exists: the curves' two deepest levels (17,317 params / 33.82 KB and 11,474 / 22.41 KB)
+# have no dense model at exactly their size, and searching cm at each usable width found
+# base=8 / cm=3.0 landing 8 parameters (+0.1%) from the 0.85-sparsity model.
+#
+# Why it failed, most likely: unlike the base_channels sweep this is not uniform width scaling.
+# cm=3.0 gives widths of roughly 8 / 24 / 72 against the baseline's 32 / 56 / 104, so the same
+# budget buys a different SHAPE, narrower early and heavier late. Shape is confounded with the
+# size match here, and at this budget it cost more than parameter count did -- the one finding
+# worth keeping from the run, and further evidence that cm is the wrong knob.
+#
+# 33.82 KB has no exact match either: base=8/cm=3.4 (+2.4%) carries the same shape caveat and
+# base=24/cm=0.7 is 7.4% under, so base=16/cm=1.8 (36.38 KB, +7.6%) stands as the principled
+# near-match. Kept for reproducibility, not for reuse.
+project_name: DCASE24_Task1
+experiment_name: scale-down-base8-cm3.0
+
+# dataset
+dataset_path: data/tau_scenes_dataset
+orig_sample_rate: 44100
+subset: 25
+
+# model -- the ONE config in the sweep where cm is not held at 1.8; see header
+n_classes: 10
+in_channels: 1
+base_channels: 8
+channels_multiplier: 3.0
+expansion_rate: 2.1
+
+# training
+n_epochs: 150
+batch_size: 256
+lr: 0.005
+warmup_steps: 2000
+weight_decay: 0.0001
+
+# augmentation
+mixstyle_p: 0.4
+mixstyle_alpha: 0.3
+roll_sec: 0.1
+
+# mel spectrogram
+sample_rate: 32000
+window_length: 3072
+hop_length: 500
+n_fft: 4096
+n_mels: 256
+freqm: 48
+timem: 0
+f_min: 0
+f_max: ~
+
+# system
+num_workers: 8
+precision: "32"

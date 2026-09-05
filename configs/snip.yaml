@@ -1,0 +1,58 @@
+# SNIP, single-shot pruning at initialization (Lee et al. 2019, arXiv:1810.02340).
+# Prunes once at init on connection sensitivity |w * dL/dw| from a single mini-batch, keeping
+# the global top-k, then trains the sparse network normally. baseline.py already initialises
+# with kaiming_normal_(fan_out), so the paper's variance-scaling precondition holds unmodified.
+#
+# Nothing is shared between levels: each target is an independent full-length training run, so
+# a five-point curve costs five trainings. Single-shot is the cheap one per model, not per curve.
+project_name: DCASE24_Task1
+experiment_name: snip-cm1.8-25pct
+method: snip
+
+# Five levels. The first three land the pruned model on the exact parameter count of a dense
+# reference already trained (cm=1.3 / cm=1.0 / cm=0.5 at 81.05 / 63.96 / 47.15 KB), so
+# pruned-vs-dense is head-to-head at identical size rather than interpolated; the last two
+# (33.82 KB, 22.41 KB) go below every dense reference. Expect degradation above ~50%: SNIP's
+# saliency decays sharply with depth, so global top-k guts the deepest and largest layer
+# (stages.s3.b6.block.2.0, 21% of all conv weights). That layer collapse is known behaviour of
+# the method, a result to report rather than a bug to fix.
+sparsities: [0.3362, 0.4860, 0.6333, 0.75, 0.85]
+
+# dataset
+dataset_path: data/tau_scenes_dataset
+orig_sample_rate: 44100
+subset: 25
+
+# model
+n_classes: 10
+in_channels: 1
+base_channels: 32
+channels_multiplier: 1.8
+expansion_rate: 2.1
+
+# training -- the full dense recipe, applied to the sparse network
+n_epochs: 150
+batch_size: 256
+lr: 0.005
+warmup_steps: 2000
+weight_decay: 0.0001
+
+# augmentation
+mixstyle_p: 0.4
+mixstyle_alpha: 0.3
+roll_sec: 0.1
+
+# mel spectrogram
+sample_rate: 32000
+window_length: 3072
+hop_length: 500
+n_fft: 4096
+n_mels: 256
+freqm: 48
+timem: 0
+f_min: 0
+f_max: ~
+
+# system
+num_workers: 8
+precision: "32"

@@ -1,0 +1,46 @@
+# Dense reference at cm=1.0 (32,748 params / 63.96 KB fp16), matching the 0.4860-sparsity point
+# of the pruning curves.
+# Replaces an originally planned cm=0.35: make_divisible floors every stage at 8 channels
+# (base_channels=32), so cm=0.35 and cm=0.5 collapse to identical channel counts {32, 16, 8}
+# and identical size. Distinctness was checked with nessi.get_torch_size, not assumed.
+project_name: DCASE24_Task1
+experiment_name: scale-down-cm1.0
+
+# dataset
+dataset_path: data/tau_scenes_dataset
+orig_sample_rate: 44100
+subset: 25
+
+# model
+n_classes: 10
+in_channels: 1
+base_channels: 32
+channels_multiplier: 1.0
+expansion_rate: 2.1
+
+# training
+n_epochs: 150
+batch_size: 256
+lr: 0.005
+warmup_steps: 2000
+weight_decay: 0.0001
+
+# augmentation
+mixstyle_p: 0.4
+mixstyle_alpha: 0.3
+roll_sec: 0.1
+
+# mel spectrogram
+sample_rate: 32000
+window_length: 3072
+hop_length: 500
+n_fft: 4096
+n_mels: 256
+freqm: 48
+timem: 0
+f_min: 0
+f_max: ~
+
+# system
+num_workers: 8
+precision: "32"

@@ -1,0 +1,44 @@
+# Dense DCASE 2024 Task 1 baseline (CP-Mobile, 61,148 params), no pruning.
+# Ships the full training split; every pruning experiment in this repo runs on the 25% split,
+# so pass --subset 25 when reusing this config.
+project_name: DCASE24_Task1
+experiment_name: baseline
+
+# dataset
+dataset_path: data/tau_scenes_dataset
+orig_sample_rate: 44100
+subset: 100
+
+# model
+n_classes: 10
+in_channels: 1
+base_channels: 32
+channels_multiplier: 1.8
+expansion_rate: 2.1
+
+# training
+n_epochs: 150
+batch_size: 256
+lr: 0.005
+warmup_steps: 2000
+weight_decay: 0.0001
+
+# augmentation
+mixstyle_p: 0.4
+mixstyle_alpha: 0.3
+roll_sec: 0.1
+
+# mel spectrogram
+sample_rate: 32000
+window_length: 3072
+hop_length: 500
+n_fft: 4096
+n_mels: 256
+freqm: 48
+timem: 0
+f_min: 0
+f_max: ~
+
+# system
+num_workers: 8
+precision: "32"
