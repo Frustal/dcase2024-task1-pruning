@@ -1,0 +1,12 @@
+run_id,checkpoint,sparsity,nonzero_params,size_kb,test_macro_accuracy
+luv7nic2,last,0.0,150716,294.37,0.5018
+luv7nic2,best,0.0,150716,294.37,0.503
+mqlsyj2g,last,0.0,150716,294.37,0.4781
+mqlsyj2g,best,0.0,150716,294.37,0.482
+jd152x6s,last,0.0,41500,81.05,0.5192
+jd152x6s,best,0.0,41500,81.05,0.5251
+lgzlk5nh,last,0.0,32748,63.96,0.4967
+lgzlk5nh,best,0.0,32748,63.96,0.5048
+46nzd7gd,last,0.0,24140,47.15,0.4894
+46nzd7gd,best,0.0,24140,47.15,0.4963
+762f0b4fde744636b143bf56646046b7,last,0.0,61148,119.43,0.4991
