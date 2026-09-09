@@ -12,8 +12,8 @@
       "n_seeds": 1,
       "params": 61148,
       "size_kb": 119.4296875,
-      "macs": 26954388,
-      "macs_pct_of_budget": 89.84796,
+      "macs": 29419156,
+      "macs_pct_of_budget": 98.06385333333333,
       "note": "this project's own trained cm=1.8 checkpoint -- the model every pruning run was actually pruned from. All pruned-vs-baseline comparisons use this number, not the organisers' published one. Single seed."
     },
     "dcase_published_baseline": {
@@ -41,7 +41,7 @@
       "config": "baseline.yaml",
       "params": 61148,
       "size_kb": 119.4296875,
-      "macs": 26954388,
+      "macs": 29419156,
       "accuracy": 0.4991,
       "accuracy_std": null,
       "accuracy_values": [
@@ -66,7 +66,7 @@
       "config": "scale_down_cm1.3.yaml",
       "params": 41500,
       "size_kb": 81.0546875,
-      "macs": 22030580,
+      "macs": 23879924,
       "accuracy": 0.4998,
       "accuracy_std": 0.016705089044958724,
       "accuracy_values": [
@@ -119,7 +119,7 @@
       "config": "scale_down_base24.yaml",
       "params": 35062,
       "size_kb": 68.48046875,
-      "macs": 15452128,
+      "macs": 16855776,
       "accuracy": 0.4981,
       "accuracy_std": null,
       "accuracy_values": [
@@ -144,7 +144,7 @@
       "config": "scale_down_cm1.0.yaml",
       "params": 32748,
       "size_kb": 63.9609375,
-      "macs": 19859428,
+      "macs": 21437412,
       "accuracy": 0.4955333333333333,
       "accuracy_std": 0.008311638426527766,
       "accuracy_values": [
@@ -183,7 +183,7 @@
       "config": "scale_down_cm0.5.yaml",
       "params": 24140,
       "size_kb": 47.1484375,
-      "macs": 17749620,
+      "macs": 19063924,
       "accuracy": 0.5037666666666666,
       "accuracy_std": 0.012538075344060297,
       "accuracy_values": [
@@ -222,7 +222,7 @@
       "config": "scale_down_base16.yaml",
       "params": 18624,
       "size_kb": 36.375,
-      "macs": 7734652,
+      "macs": 8449916,
       "accuracy": 0.47373333333333334,
       "accuracy_std": 0.005551876559626782,
       "accuracy_values": [
@@ -261,7 +261,7 @@
       "config": "scale_down_base8.yaml",
       "params": 5722,
       "size_kb": 11.17578125,
-      "macs": 2278088,
+      "macs": 2487240,
       "accuracy": 0.4538,
       "accuracy_std": null,
       "accuracy_values": [
@@ -318,18 +318,18 @@
           "n_seeds": 1,
           "accuracy_convention": "last epoch",
           "accuracy_source": "seed 42: checkpoints/d3jo4g1u/pruning_state.json",
-          "macs_executed": 26954388,
+          "macs_executed": 29419156,
           "macs_executed_values": [
-            26954388
+            29419156
           ],
-          "macs_nonzero": 17850260,
+          "macs_nonzero": 19486836,
           "macs_nonzero_values": [
-            17850260
+            19486836
           ],
           "macs_star_spread_pct": null,
-          "macs_dense_shape": 26954388,
+          "macs_dense_shape": 29419156,
           "macs_reduction_executed": 0.0,
-          "macs_reduction_nonzero": 0.33776051602432966,
+          "macs_reduction_nonzero": 0.3376140362422362,
           "macs_source": "reports/macs.json",
           "seeds": {
             "42": {
@@ -339,9 +339,9 @@
               "params_nonzero": 41500,
               "size_kb": 81.0546875,
               "accuracy": 0.4953430652618408,
-              "macs_executed": 26954388,
-              "macs_nonzero": 17850260,
-              "macs_dense_shape": 26954388
+              "macs_executed": 29419156,
+              "macs_nonzero": 19486836,
+              "macs_dense_shape": 29419156
             }
           }
         },
@@ -362,18 +362,18 @@
           "n_seeds": 1,
           "accuracy_convention": "last epoch",
           "accuracy_source": "seed 42: checkpoints/d3jo4g1u/pruning_state.json",
-          "macs_executed": 26954388,
+          "macs_executed": 29419156,
           "macs_executed_values": [
-            26954388
+            29419156
           ],
-          "macs_nonzero": 13750676,
+          "macs_nonzero": 15015924,
           "macs_nonzero_values": [
-            13750676
+            15015924
           ],
           "macs_star_spread_pct": null,
-          "macs_dense_shape": 26954388,
+          "macs_dense_shape": 29419156,
           "macs_reduction_executed": 0.0,
-          "macs_reduction_nonzero": 0.48985389688684455,
+          "macs_reduction_nonzero": 0.4895868528655275,
           "macs_source": "reports/macs.json",
           "seeds": {
             "42": {
@@ -383,9 +383,9 @@
               "params_nonzero": 32746,
               "size_kb": 63.95703125,
               "accuracy": 0.4809779092669487,
-              "macs_executed": 26954388,
-              "macs_nonzero": 13750676,
-              "macs_dense_shape": 26954388
+              "macs_executed": 29419156,
+              "macs_nonzero": 15015924,
+              "macs_dense_shape": 29419156
             }
           }
         },
@@ -406,18 +406,18 @@
           "n_seeds": 1,
           "accuracy_convention": "last epoch",
           "accuracy_source": "seed 42: checkpoints/d3jo4g1u/pruning_state.json",
-          "macs_executed": 26954388,
+          "macs_executed": 29419156,
           "macs_executed_values": [
-            26954388
+            29419156
           ],
-          "macs_nonzero": 9739156,
+          "macs_nonzero": 10639348,
           "macs_nonzero_values": [
-            9739156
+            10639348
           ],
           "macs_star_spread_pct": null,
-          "macs_dense_shape": 26954388,
+          "macs_dense_shape": 29419156,
           "macs_reduction_executed": 0.0,
-          "macs_reduction_nonzero": 0.6386801288161319,
+          "macs_reduction_nonzero": 0.6383530513247899,
           "macs_source": "reports/macs.json",
           "seeds": {
             "42": {
@@ -427,9 +427,9 @@
               "params_nonzero": 24134,
               "size_kb": 47.13671875,
               "accuracy": 0.4700682461261749,
-              "macs_executed": 26954388,
-              "macs_nonzero": 9739156,
-              "macs_dense_shape": 26954388
+              "macs_executed": 29419156,
+              "macs_nonzero": 10639348,
+              "macs_dense_shape": 29419156
             }
           }
         },
@@ -450,18 +450,18 @@
           "n_seeds": 1,
           "accuracy_convention": "last epoch",
           "accuracy_source": "seed 42: checkpoints/d3jo4g1u/pruning_state.json",
-          "macs_executed": 26954388,
+          "macs_executed": 29419156,
           "macs_executed_values": [
-            26954388
+            29419156
           ],
-          "macs_nonzero": 6654100,
+          "macs_nonzero": 7268116,
           "macs_nonzero_values": [
-            6654100
+            7268116
           ],
           "macs_star_spread_pct": null,
-          "macs_dense_shape": 26954388,
+          "macs_dense_shape": 29419156,
           "macs_reduction_executed": 0.0,
-          "macs_reduction_nonzero": 0.7531348142647498,
+          "macs_reduction_nonzero": 0.7529461416228256,
           "macs_source": "reports/macs.json",
           "seeds": {
             "42": {
@@ -471,9 +471,9 @@
               "params_nonzero": 17315,
               "size_kb": 33.818359375,
               "accuracy": 0.4583775833249092,
-              "macs_executed": 26954388,
-              "macs_nonzero": 6654100,
-              "macs_dense_shape": 26954388
+              "macs_executed": 29419156,
+              "macs_nonzero": 7268116,
+              "macs_dense_shape": 29419156
             }
           }
         },
@@ -494,18 +494,18 @@
           "n_seeds": 1,
           "accuracy_convention": "last epoch",
           "accuracy_source": "seed 42: checkpoints/d3jo4g1u/pruning_state.json",
-          "macs_executed": 26954388,
+          "macs_executed": 29419156,
           "macs_executed_values": [
-            26954388
+            29419156
           ],
-          "macs_nonzero": 3958676,
+          "macs_nonzero": 4325748,
           "macs_nonzero_values": [
-            3958676
+            4325748
           ],
           "macs_star_spread_pct": null,
-          "macs_dense_shape": 26954388,
+          "macs_dense_shape": 29419156,
           "macs_reduction_executed": 0.0,
-          "macs_reduction_nonzero": 0.8531342651890297,
+          "macs_reduction_nonzero": 0.8529615193583392,
           "macs_source": "reports/macs.json",
           "seeds": {
             "42": {
@@ -515,9 +515,9 @@
               "params_nonzero": 11474,
               "size_kb": 22.41015625,
               "accuracy": 0.3701153457164764,
-              "macs_executed": 26954388,
-              "macs_nonzero": 3958676,
-              "macs_dense_shape": 26954388
+              "macs_executed": 29419156,
+              "macs_nonzero": 4325748,
+              "macs_dense_shape": 29419156
             }
           }
         }
@@ -552,18 +552,18 @@
           "n_seeds": 1,
           "accuracy_convention": "last epoch",
           "accuracy_source": "seed 42: checkpoints/86guyp3j/pruning_state.json",
-          "macs_executed": 26954388,
+          "macs_executed": 29419156,
           "macs_executed_values": [
-            26954388
+            29419156
           ],
-          "macs_nonzero": 17850260,
+          "macs_nonzero": 19486836,
           "macs_nonzero_values": [
-            17850260
+            19486836
           ],
           "macs_star_spread_pct": null,
-          "macs_dense_shape": 26954388,
+          "macs_dense_shape": 29419156,
           "macs_reduction_executed": 0.0,
-          "macs_reduction_nonzero": 0.33776051602432966,
+          "macs_reduction_nonzero": 0.3376140362422362,
           "macs_source": "reports/macs.json",
           "seeds": {
             "42": {
@@ -573,9 +573,9 @@
               "params_nonzero": 41500,
               "size_kb": 81.0546875,
               "accuracy": 0.49880176186561587,
-              "macs_executed": 26954388,
-              "macs_nonzero": 17850260,
-              "macs_dense_shape": 26954388
+              "macs_executed": 29419156,
+              "macs_nonzero": 19486836,
+              "macs_dense_shape": 29419156
             }
           }
         },
@@ -596,18 +596,18 @@
           "n_seeds": 1,
           "accuracy_convention": "last epoch",
           "accuracy_source": "seed 42: checkpoints/86guyp3j/pruning_state.json",
-          "macs_executed": 26954388,
+          "macs_executed": 29419156,
           "macs_executed_values": [
-            26954388
+            29419156
           ],
-          "macs_nonzero": 13756820,
+          "macs_nonzero": 15022516,
           "macs_nonzero_values": [
-            13756820
+            15022516
           ],
           "macs_star_spread_pct": null,
-          "macs_dense_shape": 26954388,
+          "macs_dense_shape": 29419156,
           "macs_reduction_executed": 0.0,
-          "macs_reduction_nonzero": 0.48962595626359606,
+          "macs_reduction_nonzero": 0.48936278117563947,
           "macs_source": "reports/macs.json",
           "seeds": {
             "42": {
@@ -617,9 +617,9 @@
               "params_nonzero": 32746,
               "size_kb": 63.95703125,
               "accuracy": 0.48498248159885404,
-              "macs_executed": 26954388,
-              "macs_nonzero": 13756820,
-              "macs_dense_shape": 26954388
+              "macs_executed": 29419156,
+              "macs_nonzero": 15022516,
+              "macs_dense_shape": 29419156
             }
           }
         },
@@ -640,18 +640,18 @@
           "n_seeds": 1,
           "accuracy_convention": "last epoch",
           "accuracy_source": "seed 42: checkpoints/86guyp3j/pruning_state.json",
-          "macs_executed": 26954388,
+          "macs_executed": 29419156,
           "macs_executed_values": [
-            26954388
+            29419156
           ],
-          "macs_nonzero": 9745812,
+          "macs_nonzero": 10646068,
           "macs_nonzero_values": [
-            9745812
+            10646068
           ],
           "macs_star_spread_pct": null,
-          "macs_dense_shape": 26954388,
+          "macs_dense_shape": 29419156,
           "macs_reduction_executed": 0.0,
-          "macs_reduction_nonzero": 0.6384331931409462,
+          "macs_reduction_nonzero": 0.638124628728302,
           "macs_source": "reports/macs.json",
           "seeds": {
             "42": {
@@ -661,9 +661,9 @@
               "params_nonzero": 24137,
               "size_kb": 47.142578125,
               "accuracy": 0.4823638409376144,
-              "macs_executed": 26954388,
-              "macs_nonzero": 9745812,
-              "macs_dense_shape": 26954388
+              "macs_executed": 29419156,
+              "macs_nonzero": 10646068,
+              "macs_dense_shape": 29419156
             }
           }
         },
@@ -684,18 +684,18 @@
           "n_seeds": 1,
           "accuracy_convention": "last epoch",
           "accuracy_source": "seed 42: checkpoints/86guyp3j/pruning_state.json",
-          "macs_executed": 26954388,
+          "macs_executed": 29419156,
           "macs_executed_values": [
-            26954388
+            29419156
           ],
-          "macs_nonzero": 6649748,
+          "macs_nonzero": 7263412,
           "macs_nonzero_values": [
-            6649748
+            7263412
           ],
           "macs_star_spread_pct": null,
-          "macs_dense_shape": 26954388,
+          "macs_dense_shape": 29419156,
           "macs_reduction_executed": 0.0,
-          "macs_reduction_nonzero": 0.7532962722062174,
+          "macs_reduction_nonzero": 0.7531060374403671,
           "macs_source": "reports/macs.json",
           "seeds": {
             "42": {
@@ -705,9 +705,9 @@
               "params_nonzero": 17318,
               "size_kb": 33.82421875,
               "accuracy": 0.46474077105522155,
-              "macs_executed": 26954388,
-              "macs_nonzero": 6649748,
-              "macs_dense_shape": 26954388
+              "macs_executed": 29419156,
+              "macs_nonzero": 7263412,
+              "macs_dense_shape": 29419156
             }
           }
         },
@@ -728,18 +728,18 @@
           "n_seeds": 1,
           "accuracy_convention": "last epoch",
           "accuracy_source": "seed 42: checkpoints/86guyp3j/pruning_state.json",
-          "macs_executed": 26954388,
+          "macs_executed": 29419156,
           "macs_executed_values": [
-            26954388
+            29419156
           ],
-          "macs_nonzero": 3959700,
+          "macs_nonzero": 4326708,
           "macs_nonzero_values": [
-            3959700
+            4326708
           ],
           "macs_star_spread_pct": null,
-          "macs_dense_shape": 26954388,
+          "macs_dense_shape": 29419156,
           "macs_reduction_executed": 0.0,
-          "macs_reduction_nonzero": 0.853096275085155,
+          "macs_reduction_nonzero": 0.8529288875588409,
           "macs_source": "reports/macs.json",
           "seeds": {
             "42": {
@@ -749,9 +749,9 @@
               "params_nonzero": 11473,
               "size_kb": 22.408203125,
               "accuracy": 0.4176539033651352,
-              "macs_executed": 26954388,
-              "macs_nonzero": 3959700,
-              "macs_dense_shape": 26954388
+              "macs_executed": 29419156,
+              "macs_nonzero": 4326708,
+              "macs_dense_shape": 29419156
             }
           }
         }
@@ -786,18 +786,18 @@
           "n_seeds": 1,
           "accuracy_convention": "last epoch",
           "accuracy_source": "seed 42: checkpoints/66d7cow0/pruning_state.json",
-          "macs_executed": 26954388,
+          "macs_executed": 29419156,
           "macs_executed_values": [
-            26954388
+            29419156
           ],
-          "macs_nonzero": 17850260,
+          "macs_nonzero": 19486836,
           "macs_nonzero_values": [
-            17850260
+            19486836
           ],
           "macs_star_spread_pct": null,
-          "macs_dense_shape": 26954388,
+          "macs_dense_shape": 29419156,
           "macs_reduction_executed": 0.0,
-          "macs_reduction_nonzero": 0.33776051602432966,
+          "macs_reduction_nonzero": 0.3376140362422362,
           "macs_source": "reports/macs.json",
           "seeds": {
             "42": {
@@ -807,9 +807,9 @@
               "params_nonzero": 41500,
               "size_kb": 81.0546875,
               "accuracy": 0.49692111760377883,
-              "macs_executed": 26954388,
-              "macs_nonzero": 17850260,
-              "macs_dense_shape": 26954388
+              "macs_executed": 29419156,
+              "macs_nonzero": 19486836,
+              "macs_dense_shape": 29419156
             }
           }
         },
@@ -830,18 +830,18 @@
           "n_seeds": 1,
           "accuracy_convention": "last epoch",
           "accuracy_source": "seed 42: checkpoints/66d7cow0/pruning_state.json",
-          "macs_executed": 26954388,
+          "macs_executed": 29419156,
           "macs_executed_values": [
-            26954388
+            29419156
           ],
-          "macs_nonzero": 13759380,
+          "macs_nonzero": 15025332,
           "macs_nonzero_values": [
-            13759380
+            15025332
           ],
           "macs_star_spread_pct": null,
-          "macs_dense_shape": 26954388,
+          "macs_dense_shape": 29419156,
           "macs_reduction_executed": 0.0,
-          "macs_reduction_nonzero": 0.48953098100390924,
+          "macs_reduction_nonzero": 0.4892670612304445,
           "macs_source": "reports/macs.json",
           "seeds": {
             "42": {
@@ -851,9 +851,9 @@
               "params_nonzero": 32742,
               "size_kb": 63.94921875,
               "accuracy": 0.49022374898195265,
-              "macs_executed": 26954388,
-              "macs_nonzero": 13759380,
-              "macs_dense_shape": 26954388
+              "macs_executed": 29419156,
+              "macs_nonzero": 15025332,
+              "macs_dense_shape": 29419156
             }
           }
         },
@@ -874,18 +874,18 @@
           "n_seeds": 1,
           "accuracy_convention": "last epoch",
           "accuracy_source": "seed 42: checkpoints/66d7cow0/pruning_state.json",
-          "macs_executed": 26954388,
+          "macs_executed": 29419156,
           "macs_executed_values": [
-            26954388
+            29419156
           ],
-          "macs_nonzero": 9777300,
+          "macs_nonzero": 10679700,
           "macs_nonzero_values": [
-            9777300
+            10679700
           ],
           "macs_star_spread_pct": null,
-          "macs_dense_shape": 26954388,
+          "macs_dense_shape": 29419156,
           "macs_reduction_executed": 0.0,
-          "macs_reduction_nonzero": 0.6372649974467979,
+          "macs_reduction_nonzero": 0.636981428019213,
           "macs_source": "reports/macs.json",
           "seeds": {
             "42": {
@@ -895,9 +895,9 @@
               "params_nonzero": 24136,
               "size_kb": 47.140625,
               "accuracy": 0.48038492649793624,
-              "macs_executed": 26954388,
-              "macs_nonzero": 9777300,
-              "macs_dense_shape": 26954388
+              "macs_executed": 29419156,
+              "macs_nonzero": 10679700,
+              "macs_dense_shape": 29419156
             }
           }
         },
@@ -918,18 +918,18 @@
           "n_seeds": 1,
           "accuracy_convention": "last epoch",
           "accuracy_source": "seed 42: checkpoints/66d7cow0/pruning_state.json",
-          "macs_executed": 26954388,
+          "macs_executed": 29419156,
           "macs_executed_values": [
-            26954388
+            29419156
           ],
-          "macs_nonzero": 6673300,
+          "macs_nonzero": 7289076,
           "macs_nonzero_values": [
-            6673300
+            7289076
           ],
           "macs_star_spread_pct": null,
-          "macs_dense_shape": 26954388,
+          "macs_dense_shape": 29419156,
           "macs_reduction_executed": 0.0,
-          "macs_reduction_nonzero": 0.7524224998170984,
+          "macs_reduction_nonzero": 0.7522336806671136,
           "macs_source": "reports/macs.json",
           "seeds": {
             "42": {
@@ -939,9 +939,9 @@
               "params_nonzero": 17317,
               "size_kb": 33.822265625,
               "accuracy": 0.4650845155119896,
-              "macs_executed": 26954388,
-              "macs_nonzero": 6673300,
-              "macs_dense_shape": 26954388
+              "macs_executed": 29419156,
+              "macs_nonzero": 7289076,
+              "macs_dense_shape": 29419156
             }
           }
         },
@@ -962,18 +962,18 @@
           "n_seeds": 1,
           "accuracy_convention": "last epoch",
           "accuracy_source": "seed 42: checkpoints/66d7cow0/pruning_state.json",
-          "macs_executed": 26954388,
+          "macs_executed": 29419156,
           "macs_executed_values": [
-            26954388
+            29419156
           ],
-          "macs_nonzero": 3990420,
+          "macs_nonzero": 4359860,
           "macs_nonzero_values": [
-            3990420
+            4359860
           ],
           "macs_star_spread_pct": null,
-          "macs_dense_shape": 26954388,
+          "macs_dense_shape": 29419156,
           "macs_reduction_executed": 0.0,
-          "macs_reduction_nonzero": 0.8519565719689128,
+          "macs_reduction_nonzero": 0.851802002749501,
           "macs_source": "reports/macs.json",
           "seeds": {
             "42": {
@@ -983,9 +983,9 @@
               "params_nonzero": 11474,
               "size_kb": 22.41015625,
               "accuracy": 0.44061640948057174,
-              "macs_executed": 26954388,
-              "macs_nonzero": 3990420,
-              "macs_dense_shape": 26954388
+              "macs_executed": 29419156,
+              "macs_nonzero": 4359860,
+              "macs_dense_shape": 29419156
             }
           }
         }
@@ -1026,22 +1026,22 @@
           "n_seeds": 3,
           "accuracy_convention": "last epoch",
           "accuracy_source": "seed 42: checkpoints/iel3qnvt/pruning_state.json; seed 43: checkpoints/pjqyh53l/pruning_state.json; seed 44: checkpoints/cul3sq06/pruning_state.json",
-          "macs_executed": 26954388,
+          "macs_executed": 29419156,
           "macs_executed_values": [
-            26954388,
-            26954388,
-            26954388
+            29419156,
+            29419156,
+            29419156
           ],
-          "macs_nonzero": 20370580,
+          "macs_nonzero": 22123220,
           "macs_nonzero_values": [
-            20436884,
-            20355476,
-            20319380
+            22192436,
+            22107508,
+            22069716
           ],
-          "macs_star_spread_pct": 0.5768318820573592,
-          "macs_dense_shape": 26954388,
+          "macs_star_spread_pct": 0.5547112942871788,
+          "macs_dense_shape": 29419156,
           "macs_reduction_executed": 0.0,
-          "macs_reduction_nonzero": 0.24425737286263005,
+          "macs_reduction_nonzero": 0.24799950073346766,
           "macs_source": "reports/macs.json",
           "seeds": {
             "42": {
@@ -1051,9 +1051,9 @@
               "params_nonzero": 41501,
               "size_kb": 81.056640625,
               "accuracy": 0.48187858760356905,
-              "macs_executed": 26954388,
-              "macs_nonzero": 20436884,
-              "macs_dense_shape": 26954388
+              "macs_executed": 29419156,
+              "macs_nonzero": 22192436,
+              "macs_dense_shape": 29419156
             },
             "43": {
               "run_id": "pjqyh53l",
@@ -1062,9 +1062,9 @@
               "params_nonzero": 41501,
               "size_kb": 81.056640625,
               "accuracy": 0.514715513586998,
-              "macs_executed": 26954388,
-              "macs_nonzero": 20355476,
-              "macs_dense_shape": 26954388
+              "macs_executed": 29419156,
+              "macs_nonzero": 22107508,
+              "macs_dense_shape": 29419156
             },
             "44": {
               "run_id": "cul3sq06",
@@ -1073,9 +1073,9 @@
               "params_nonzero": 41501,
               "size_kb": 81.056640625,
               "accuracy": 0.5052832335233688,
-              "macs_executed": 26954388,
-              "macs_nonzero": 20319380,
-              "macs_dense_shape": 26954388
+              "macs_executed": 29419156,
+              "macs_nonzero": 22069716,
+              "macs_dense_shape": 29419156
             }
           }
         },
@@ -1100,22 +1100,22 @@
           "n_seeds": 3,
           "accuracy_convention": "last epoch",
           "accuracy_source": "seed 42: checkpoints/iel3qnvt/pruning_state.json; seed 43: checkpoints/pjqyh53l/pruning_state.json; seed 44: checkpoints/cul3sq06/pruning_state.json",
-          "macs_executed": 26954388,
+          "macs_executed": 29419156,
           "macs_executed_values": [
-            26954388,
-            26954388,
-            26954388
+            29419156,
+            29419156,
+            29419156
           ],
-          "macs_nonzero": 17106921,
+          "macs_nonzero": 18525972,
           "macs_nonzero_values": [
-            17187988,
-            17101204,
-            17031572
+            18610580,
+            18520180,
+            18447156
           ],
-          "macs_star_spread_pct": 0.9143433640231857,
-          "macs_dense_shape": 26954388,
+          "macs_star_spread_pct": 0.8821345514286646,
+          "macs_dense_shape": 29419156,
           "macs_reduction_executed": 0.0,
-          "macs_reduction_nonzero": 0.3653381655954002,
+          "macs_reduction_nonzero": 0.37027520436004346,
           "macs_source": "reports/macs.json",
           "seeds": {
             "42": {
@@ -1125,9 +1125,9 @@
               "params_nonzero": 32747,
               "size_kb": 63.958984375,
               "accuracy": 0.5060533314943314,
-              "macs_executed": 26954388,
-              "macs_nonzero": 17187988,
-              "macs_dense_shape": 26954388
+              "macs_executed": 29419156,
+              "macs_nonzero": 18610580,
+              "macs_dense_shape": 29419156
             },
             "43": {
               "run_id": "pjqyh53l",
@@ -1136,9 +1136,9 @@
               "params_nonzero": 32747,
               "size_kb": 63.958984375,
               "accuracy": 0.5063447564840317,
-              "macs_executed": 26954388,
-              "macs_nonzero": 17101204,
-              "macs_dense_shape": 26954388
+              "macs_executed": 29419156,
+              "macs_nonzero": 18520180,
+              "macs_dense_shape": 29419156
             },
             "44": {
               "run_id": "cul3sq06",
@@ -1147,9 +1147,9 @@
               "params_nonzero": 32747,
               "size_kb": 63.958984375,
               "accuracy": 0.5120351046323777,
-              "macs_executed": 26954388,
-              "macs_nonzero": 17031572,
-              "macs_dense_shape": 26954388
+              "macs_executed": 29419156,
+              "macs_nonzero": 18447156,
+              "macs_dense_shape": 29419156
             }
           }
         },
@@ -1174,22 +1174,22 @@
           "n_seeds": 3,
           "accuracy_convention": "last epoch",
           "accuracy_source": "seed 42: checkpoints/iel3qnvt/pruning_state.json; seed 43: checkpoints/pjqyh53l/pruning_state.json; seed 44: checkpoints/cul3sq06/pruning_state.json",
-          "macs_executed": 26954388,
+          "macs_executed": 29419156,
           "macs_executed_values": [
-            26954388,
-            26954388,
-            26954388
+            29419156,
+            29419156,
+            29419156
           ],
-          "macs_nonzero": 13554495,
+          "macs_nonzero": 14627540,
           "macs_nonzero_values": [
-            13664148,
-            13543316,
-            13456020
+            14743092,
+            14615284,
+            14524244
           ],
-          "macs_star_spread_pct": 1.5354906628266285,
-          "macs_dense_shape": 26954388,
+          "macs_star_spread_pct": 1.4961367393286908,
+          "macs_dense_shape": 29419156,
           "macs_reduction_executed": 0.0,
-          "macs_reduction_nonzero": 0.49713216762084655,
+          "macs_reduction_nonzero": 0.5027885912158732,
           "macs_source": "reports/macs.json",
           "seeds": {
             "42": {
@@ -1199,9 +1199,9 @@
               "params_nonzero": 24138,
               "size_kb": 47.14453125,
               "accuracy": 0.5016642779111862,
-              "macs_executed": 26954388,
-              "macs_nonzero": 13664148,
-              "macs_dense_shape": 26954388
+              "macs_executed": 29419156,
+              "macs_nonzero": 14743092,
+              "macs_dense_shape": 29419156
             },
             "43": {
               "run_id": "pjqyh53l",
@@ -1210,9 +1210,9 @@
               "params_nonzero": 24138,
               "size_kb": 47.14453125,
               "accuracy": 0.5076052129268647,
-              "macs_executed": 26954388,
-              "macs_nonzero": 13543316,
-              "macs_dense_shape": 26954388
+              "macs_executed": 29419156,
+              "macs_nonzero": 14615284,
+              "macs_dense_shape": 29419156
             },
             "44": {
               "run_id": "cul3sq06",
@@ -1221,9 +1221,9 @@
               "params_nonzero": 24138,
               "size_kb": 47.14453125,
               "accuracy": 0.4857174217700958,
-              "macs_executed": 26954388,
-              "macs_nonzero": 13456020,
-              "macs_dense_shape": 26954388
+              "macs_executed": 29419156,
+              "macs_nonzero": 14524244,
+              "macs_dense_shape": 29419156
             }
           }
         },
@@ -1248,22 +1248,22 @@
           "n_seeds": 3,
           "accuracy_convention": "last epoch",
           "accuracy_source": "seed 42: checkpoints/iel3qnvt/pruning_state.json; seed 43: checkpoints/pjqyh53l/pruning_state.json; seed 44: checkpoints/cul3sq06/pruning_state.json",
-          "macs_executed": 26954388,
+          "macs_executed": 29419156,
           "macs_executed_values": [
-            26954388,
-            26954388,
-            26954388
+            29419156,
+            29419156,
+            29419156
           ],
-          "macs_nonzero": 10310036,
+          "macs_nonzero": 11087113,
           "macs_nonzero_values": [
-            10366100,
-            10352532,
-            10211476
+            11146900,
+            11131316,
+            10983124
           ],
-          "macs_star_spread_pct": 1.4997425809182432,
-          "macs_dense_shape": 26954388,
+          "macs_star_spread_pct": 1.4771744012718668,
+          "macs_dense_shape": 29419156,
           "macs_reduction_executed": 0.0,
-          "macs_reduction_nonzero": 0.6175006459059653,
+          "macs_reduction_nonzero": 0.623132854887702,
           "macs_source": "reports/macs.json",
           "seeds": {
             "42": {
@@ -1273,9 +1273,9 @@
               "params_nonzero": 17318,
               "size_kb": 33.82421875,
               "accuracy": 0.4825750797986984,
-              "macs_executed": 26954388,
-              "macs_nonzero": 10366100,
-              "macs_dense_shape": 26954388
+              "macs_executed": 29419156,
+              "macs_nonzero": 11146900,
+              "macs_dense_shape": 29419156
             },
             "43": {
               "run_id": "pjqyh53l",
@@ -1284,9 +1284,9 @@
               "params_nonzero": 17318,
               "size_kb": 33.82421875,
               "accuracy": 0.5099261730909348,
-              "macs_executed": 26954388,
-              "macs_nonzero": 10352532,
-              "macs_dense_shape": 26954388
+              "macs_executed": 29419156,
+              "macs_nonzero": 11131316,
+              "macs_dense_shape": 29419156
             },
             "44": {
               "run_id": "cul3sq06",
@@ -1295,9 +1295,9 @@
               "params_nonzero": 17318,
               "size_kb": 33.82421875,
               "accuracy": 0.4970021188259125,
-              "macs_executed": 26954388,
-              "macs_nonzero": 10211476,
-              "macs_dense_shape": 26954388
+              "macs_executed": 29419156,
+              "macs_nonzero": 10983124,
+              "macs_dense_shape": 29419156
             }
           }
         },
@@ -1322,22 +1322,22 @@
           "n_seeds": 3,
           "accuracy_convention": "last epoch",
           "accuracy_source": "seed 42: checkpoints/iel3qnvt/pruning_state.json; seed 43: checkpoints/pjqyh53l/pruning_state.json; seed 44: checkpoints/cul3sq06/pruning_state.json",
-          "macs_executed": 26954388,
+          "macs_executed": 29419156,
           "macs_executed_values": [
-            26954388,
-            26954388,
-            26954388
+            29419156,
+            29419156,
+            29419156
           ],
-          "macs_nonzero": 6972393,
+          "macs_nonzero": 7469545,
           "macs_nonzero_values": [
-            7008404,
-            7050900,
-            6857876
+            7508244,
+            7550420,
+            7349972
           ],
-          "macs_star_spread_pct": 2.7684037714452905,
-          "macs_dense_shape": 26954388,
+          "macs_star_spread_pct": 2.683536829283139,
+          "macs_dense_shape": 29419156,
           "macs_reduction_executed": 0.0,
-          "macs_reduction_nonzero": 0.7413262236436853,
+          "macs_reduction_nonzero": 0.746099264936991,
           "macs_source": "reports/macs.json",
           "seeds": {
             "42": {
@@ -1347,9 +1347,9 @@
               "params_nonzero": 11474,
               "size_kb": 22.41015625,
               "accuracy": 0.4836944878101349,
-              "macs_executed": 26954388,
-              "macs_nonzero": 7008404,
-              "macs_dense_shape": 26954388
+              "macs_executed": 29419156,
+              "macs_nonzero": 7508244,
+              "macs_dense_shape": 29419156
             },
             "43": {
               "run_id": "pjqyh53l",
@@ -1358,9 +1358,9 @@
               "params_nonzero": 11474,
               "size_kb": 22.41015625,
               "accuracy": 0.5012214541435241,
-              "macs_executed": 26954388,
-              "macs_nonzero": 7050900,
-              "macs_dense_shape": 26954388
+              "macs_executed": 29419156,
+              "macs_nonzero": 7550420,
+              "macs_dense_shape": 29419156
             },
             "44": {
               "run_id": "cul3sq06",
@@ -1369,9 +1369,9 @@
               "params_nonzero": 11474,
               "size_kb": 22.41015625,
               "accuracy": 0.4884658545255661,
-              "macs_executed": 26954388,
-              "macs_nonzero": 6857876,
-              "macs_dense_shape": 26954388
+              "macs_executed": 29419156,
+              "macs_nonzero": 7349972,
+              "macs_dense_shape": 29419156
             }
           }
         }
@@ -1412,22 +1412,22 @@
           "n_seeds": 3,
           "accuracy_convention": "last epoch",
           "accuracy_source": "seed 42: checkpoints/pv6k1wze/pruning_state.json; seed 43: checkpoints/quuhqh9f/pruning_state.json; seed 44: checkpoints/wd05nhmr/pruning_state.json",
-          "macs_executed": 18441193,
+          "macs_executed": 20103316,
           "macs_executed_values": [
-            18456468,
-            18479252,
-            18387860
+            20119476,
+            20141396,
+            20049076
           ],
-          "macs_nonzero": 18441193,
+          "macs_nonzero": 20103316,
           "macs_nonzero_values": [
-            18456468,
-            18479252,
-            18387860
+            20119476,
+            20141396,
+            20049076
           ],
-          "macs_star_spread_pct": 0.49558614970325493,
-          "macs_dense_shape": 26954388,
-          "macs_reduction_executed": 0.3158370602466162,
-          "macs_reduction_nonzero": 0.3158370602466162,
+          "macs_star_spread_pct": 0.4592277214366028,
+          "macs_dense_shape": 29419156,
+          "macs_reduction_executed": 0.31665898233110423,
+          "macs_reduction_nonzero": 0.31665898233110423,
           "macs_source": "reports/macs.json",
           "seeds": {
             "42": {
@@ -1437,9 +1437,9 @@
               "params_nonzero": 41490,
               "size_kb": 81.03515625,
               "accuracy": 0.4798143610358238,
-              "macs_executed": 18456468,
-              "macs_nonzero": 18456468,
-              "macs_dense_shape": 26954388
+              "macs_executed": 20119476,
+              "macs_nonzero": 20119476,
+              "macs_dense_shape": 29419156
             },
             "43": {
               "run_id": "quuhqh9f",
@@ -1448,9 +1448,9 @@
               "params_nonzero": 41464,
               "size_kb": 80.984375,
               "accuracy": 0.4944167986512184,
-              "macs_executed": 18479252,
-              "macs_nonzero": 18479252,
-              "macs_dense_shape": 26954388
+              "macs_executed": 20141396,
+              "macs_nonzero": 20141396,
+              "macs_dense_shape": 29419156
             },
             "44": {
               "run_id": "wd05nhmr",
@@ -1459,9 +1459,9 @@
               "params_nonzero": 41486,
               "size_kb": 81.02734375,
               "accuracy": 0.4695182636380196,
-              "macs_executed": 18387860,
-              "macs_nonzero": 18387860,
-              "macs_dense_shape": 26954388
+              "macs_executed": 20049076,
+              "macs_nonzero": 20049076,
+              "macs_dense_shape": 29419156
             }
           }
         },
@@ -1486,22 +1486,22 @@
           "n_seeds": 3,
           "accuracy_convention": "last epoch",
           "accuracy_source": "seed 42: checkpoints/pv6k1wze/pruning_state.json; seed 43: checkpoints/quuhqh9f/pruning_state.json; seed 44: checkpoints/wd05nhmr/pruning_state.json",
-          "macs_executed": 14551529,
+          "macs_executed": 15851455,
           "macs_executed_values": [
-            14572692,
-            14567316,
-            14514580
+            15874388,
+            15867188,
+            15812788
           ],
-          "macs_nonzero": 14551529,
+          "macs_nonzero": 15851455,
           "macs_nonzero_values": [
-            14572692,
-            14567316,
-            14514580
+            15874388,
+            15867188,
+            15812788
           ],
-          "macs_star_spread_pct": 0.39935321345834257,
-          "macs_dense_shape": 26954388,
-          "macs_reduction_executed": 0.46014246981480955,
-          "macs_reduction_nonzero": 0.46014246981480955,
+          "macs_star_spread_pct": 0.3886078678289126,
+          "macs_dense_shape": 29419156,
+          "macs_reduction_executed": 0.46118594745999286,
+          "macs_reduction_nonzero": 0.46118594745999286,
           "macs_source": "reports/macs.json",
           "seeds": {
             "42": {
@@ -1511,9 +1511,9 @@
               "params_nonzero": 32777,
               "size_kb": 64.017578125,
               "accuracy": 0.4947546422481537,
-              "macs_executed": 14572692,
-              "macs_nonzero": 14572692,
-              "macs_dense_shape": 26954388
+              "macs_executed": 15874388,
+              "macs_nonzero": 15874388,
+              "macs_dense_shape": 29419156
             },
             "43": {
               "run_id": "quuhqh9f",
@@ -1522,9 +1522,9 @@
               "params_nonzero": 32757,
               "size_kb": 63.978515625,
               "accuracy": 0.4794907450675964,
-              "macs_executed": 14567316,
-              "macs_nonzero": 14567316,
-              "macs_dense_shape": 26954388
+              "macs_executed": 15867188,
+              "macs_nonzero": 15867188,
+              "macs_dense_shape": 29419156
             },
             "44": {
               "run_id": "wd05nhmr",
@@ -1533,9 +1533,9 @@
               "params_nonzero": 32698,
               "size_kb": 63.86328125,
               "accuracy": 0.46584288626909254,
-              "macs_executed": 14514580,
-              "macs_nonzero": 14514580,
-              "macs_dense_shape": 26954388
+              "macs_executed": 15812788,
+              "macs_nonzero": 15812788,
+              "macs_dense_shape": 29419156
             }
           }
         },
@@ -1560,22 +1560,22 @@
           "n_seeds": 3,
           "accuracy_convention": "last epoch",
           "accuracy_source": "seed 42: checkpoints/pv6k1wze/pruning_state.json; seed 43: checkpoints/quuhqh9f/pruning_state.json; seed 44: checkpoints/wd05nhmr/pruning_state.json",
-          "macs_executed": 10646761,
+          "macs_executed": 11583881,
           "macs_executed_values": [
-            10694292,
-            10667412,
-            10578580
+            11633236,
+            11604980,
+            11513428
           ],
-          "macs_nonzero": 10646761,
+          "macs_nonzero": 11583881,
           "macs_nonzero_values": [
-            10694292,
-            10667412,
-            10578580
+            11633236,
+            11604980,
+            11513428
           ],
-          "macs_star_spread_pct": 1.0868281571948453,
-          "macs_dense_shape": 26954388,
-          "macs_reduction_executed": 0.6050082334151554,
-          "macs_reduction_nonzero": 0.6050082334151554,
+          "macs_star_spread_pct": 1.0342647386696295,
+          "macs_dense_shape": 29419156,
+          "macs_reduction_executed": 0.606246986374003,
+          "macs_reduction_nonzero": 0.606246986374003,
           "macs_source": "reports/macs.json",
           "seeds": {
             "42": {
@@ -1585,9 +1585,9 @@
               "params_nonzero": 24139,
               "size_kb": 47.146484375,
               "accuracy": 0.4640727072954178,
-              "macs_executed": 10694292,
-              "macs_nonzero": 10694292,
-              "macs_dense_shape": 26954388
+              "macs_executed": 11633236,
+              "macs_nonzero": 11633236,
+              "macs_dense_shape": 29419156
             },
             "43": {
               "run_id": "quuhqh9f",
@@ -1596,9 +1596,9 @@
               "params_nonzero": 24123,
               "size_kb": 47.115234375,
               "accuracy": 0.4743818774819374,
-              "macs_executed": 10667412,
-              "macs_nonzero": 10667412,
-              "macs_dense_shape": 26954388
+              "macs_executed": 11604980,
+              "macs_nonzero": 11604980,
+              "macs_dense_shape": 29419156
             },
             "44": {
               "run_id": "wd05nhmr",
@@ -1607,9 +1607,9 @@
               "params_nonzero": 24169,
               "size_kb": 47.205078125,
               "accuracy": 0.47593899965286257,
-              "macs_executed": 10578580,
-              "macs_nonzero": 10578580,
-              "macs_dense_shape": 26954388
+              "macs_executed": 11513428,
+              "macs_nonzero": 11513428,
+              "macs_dense_shape": 29419156
             }
           }
         },
@@ -1634,22 +1634,22 @@
           "n_seeds": 3,
           "accuracy_convention": "last epoch",
           "accuracy_source": "seed 42: checkpoints/pv6k1wze/pruning_state.json; seed 43: checkpoints/quuhqh9f/pruning_state.json; seed 44: checkpoints/wd05nhmr/pruning_state.json",
-          "macs_executed": 7527060,
+          "macs_executed": 8176511,
           "macs_executed_values": [
-            7717268,
-            7342484,
-            7521428
+            8374132,
+            7984116,
+            8171284
           ],
-          "macs_nonzero": 7527060,
+          "macs_nonzero": 8176511,
           "macs_nonzero_values": [
-            7717268,
-            7342484,
-            7521428
+            8374132,
+            7984116,
+            8171284
           ],
-          "macs_star_spread_pct": 4.979155208009502,
-          "macs_dense_shape": 26954388,
-          "macs_reduction_executed": 0.7207482507115354,
-          "macs_reduction_nonzero": 0.7207482507115354,
+          "macs_star_spread_pct": 4.7699564753212575,
+          "macs_dense_shape": 29419156,
+          "macs_reduction_executed": 0.7220684826353732,
+          "macs_reduction_nonzero": 0.7220684826353732,
           "macs_source": "reports/macs.json",
           "seeds": {
             "42": {
@@ -1659,9 +1659,9 @@
               "params_nonzero": 17301,
               "size_kb": 33.791015625,
               "accuracy": 0.48190690875053405,
-              "macs_executed": 7717268,
-              "macs_nonzero": 7717268,
-              "macs_dense_shape": 26954388
+              "macs_executed": 8374132,
+              "macs_nonzero": 8374132,
+              "macs_dense_shape": 29419156
             },
             "43": {
               "run_id": "quuhqh9f",
@@ -1670,9 +1670,9 @@
               "params_nonzero": 17285,
               "size_kb": 33.759765625,
               "accuracy": 0.43548992201685904,
-              "macs_executed": 7342484,
-              "macs_nonzero": 7342484,
-              "macs_dense_shape": 26954388
+              "macs_executed": 7984116,
+              "macs_nonzero": 7984116,
+              "macs_dense_shape": 29419156
             },
             "44": {
               "run_id": "wd05nhmr",
@@ -1681,9 +1681,9 @@
               "params_nonzero": 17359,
               "size_kb": 33.904296875,
               "accuracy": 0.46279085874557496,
-              "macs_executed": 7521428,
-              "macs_nonzero": 7521428,
-              "macs_dense_shape": 26954388
+              "macs_executed": 8171284,
+              "macs_nonzero": 8171284,
+              "macs_dense_shape": 29419156
             }
           }
         },
@@ -1708,22 +1708,22 @@
           "n_seeds": 3,
           "accuracy_convention": "last epoch",
           "accuracy_source": "seed 42: checkpoints/pv6k1wze/pruning_state.json; seed 43: checkpoints/quuhqh9f/pruning_state.json; seed 44: checkpoints/wd05nhmr/pruning_state.json",
-          "macs_executed": 4756457,
+          "macs_executed": 5155412,
           "macs_executed_values": [
-            4852628,
-            4625812,
-            4790932
+            5255412,
+            5019956,
+            5190868
           ],
-          "macs_nonzero": 4756457,
+          "macs_nonzero": 5155412,
           "macs_nonzero_values": [
-            4852628,
-            4625812,
-            4790932
+            5255412,
+            5019956,
+            5190868
           ],
-          "macs_star_spread_pct": 4.768591077448959,
-          "macs_dense_shape": 26954388,
-          "macs_reduction_executed": 0.823536808428619,
-          "macs_reduction_nonzero": 0.823536808428619,
+          "macs_star_spread_pct": 4.567161654587451,
+          "macs_dense_shape": 29419156,
+          "macs_reduction_executed": 0.8247600305052939,
+          "macs_reduction_nonzero": 0.8247600305052939,
           "macs_source": "reports/macs.json",
           "seeds": {
             "42": {
@@ -1733,9 +1733,9 @@
               "params_nonzero": 11500,
               "size_kb": 22.4609375,
               "accuracy": 0.4662411332130432,
-              "macs_executed": 4852628,
-              "macs_nonzero": 4852628,
-              "macs_dense_shape": 26954388
+              "macs_executed": 5255412,
+              "macs_nonzero": 5255412,
+              "macs_dense_shape": 29419156
             },
             "43": {
               "run_id": "quuhqh9f",
@@ -1744,9 +1744,9 @@
               "params_nonzero": 11482,
               "size_kb": 22.42578125,
               "accuracy": 0.4802182883024216,
-              "macs_executed": 4625812,
-              "macs_nonzero": 4625812,
-              "macs_dense_shape": 26954388
+              "macs_executed": 5019956,
+              "macs_nonzero": 5019956,
+              "macs_dense_shape": 29419156
             },
             "44": {
               "run_id": "wd05nhmr",
@@ -1755,9 +1755,9 @@
               "params_nonzero": 11510,
               "size_kb": 22.48046875,
               "accuracy": 0.47340044677257537,
-              "macs_executed": 4790932,
-              "macs_nonzero": 4790932,
-              "macs_dense_shape": 26954388
+              "macs_executed": 5190868,
+              "macs_nonzero": 5190868,
+              "macs_dense_shape": 29419156
             }
           }
         }
@@ -1779,9 +1779,9 @@
       "dense_accuracy_std": 0.016705089044958724,
       "n_seeds_dense": 5,
       "dense_params": 41500,
-      "dense_macs": 22030580,
+      "dense_macs": 23879924,
       "params_vs_reference_pct": 0.0,
-      "macs_vs_reference_pct": -22.3498791225651,
+      "macs_vs_reference_pct": -23.196187726560602,
       "margin_pp": -0.4456934738159224,
       "welch": null,
       "significant_p05": false,
@@ -1802,9 +1802,9 @@
       "dense_accuracy_std": 0.008311638426527766,
       "n_seeds_dense": 3,
       "dense_params": 32748,
-      "dense_macs": 19859428,
+      "dense_macs": 21437412,
       "params_vs_reference_pct": 0.006107243190422995,
-      "macs_vs_reference_pct": -35.725903082405,
+      "macs_vs_reference_pct": -37.23277791181137,
       "margin_pp": -1.4555424066384604,
       "welch": null,
       "significant_p05": false,
@@ -1825,9 +1825,9 @@
       "dense_accuracy_std": 0.012538075344060297,
       "n_seeds_dense": 3,
       "dense_params": 24140,
-      "dense_macs": 17749620,
+      "dense_macs": 19063924,
       "params_vs_reference_pct": 0.024855012427504874,
-      "macs_vs_reference_pct": -51.858958107272144,
+      "macs_vs_reference_pct": -54.3184708457713,
       "margin_pp": -3.369842054049166,
       "welch": null,
       "significant_p05": false,
@@ -1848,9 +1848,9 @@
       "dense_accuracy_std": 0.005551876559626782,
       "n_seeds_dense": 3,
       "dense_params": 18624,
-      "dense_macs": 7734652,
+      "dense_macs": 8449916,
       "params_vs_reference_pct": 7.028565292096223,
-      "macs_vs_reference_pct": -248.48869735832974,
+      "macs_vs_reference_pct": -248.15915329809198,
       "margin_pp": -1.5355750008424152,
       "welch": null,
       "significant_p05": false,
@@ -1880,9 +1880,9 @@
       "dense_accuracy_std": 0.005551876559626782,
       "n_seeds_dense": 3,
       "dense_params": 18624,
-      "dense_macs": 7734652,
+      "dense_macs": 8449916,
       "params_vs_reference_pct": 38.39132302405498,
-      "macs_vs_reference_pct": -248.48869735832974,
+      "macs_vs_reference_pct": -248.15915329809198,
       "margin_pp": -10.361798761685693,
       "welch": null,
       "significant_p05": false,
@@ -1912,9 +1912,9 @@
       "dense_accuracy_std": 0.016705089044958724,
       "n_seeds_dense": 5,
       "dense_params": 41500,
-      "dense_macs": 22030580,
+      "dense_macs": 23879924,
       "params_vs_reference_pct": 0.0,
-      "macs_vs_reference_pct": -22.3498791225651,
+      "macs_vs_reference_pct": -23.196187726560602,
       "margin_pp": -0.09982381343841551,
       "welch": null,
       "significant_p05": false,
@@ -1935,9 +1935,9 @@
       "dense_accuracy_std": 0.008311638426527766,
       "n_seeds_dense": 3,
       "dense_params": 32748,
-      "dense_macs": 19859428,
+      "dense_macs": 21437412,
       "params_vs_reference_pct": 0.006107243190422995,
-      "macs_vs_reference_pct": -35.725903082405,
+      "macs_vs_reference_pct": -37.23277791181137,
       "margin_pp": -1.0550851734479283,
       "welch": null,
       "significant_p05": false,
@@ -1958,9 +1958,9 @@
       "dense_accuracy_std": 0.012538075344060297,
       "n_seeds_dense": 3,
       "dense_params": 24140,
-      "dense_macs": 17749620,
+      "dense_macs": 19063924,
       "params_vs_reference_pct": 0.012427506213752437,
-      "macs_vs_reference_pct": -51.858958107272144,
+      "macs_vs_reference_pct": -54.3184708457713,
       "margin_pp": -2.1402825729052166,
       "welch": null,
       "significant_p05": false,
@@ -1981,9 +1981,9 @@
       "dense_accuracy_std": 0.005551876559626782,
       "n_seeds_dense": 3,
       "dense_params": 18624,
-      "dense_macs": 7734652,
+      "dense_macs": 8449916,
       "params_vs_reference_pct": 7.012457044673537,
-      "macs_vs_reference_pct": -248.48869735832974,
+      "macs_vs_reference_pct": -248.15915329809198,
       "margin_pp": -0.8992562278111793,
       "welch": null,
       "significant_p05": false,
@@ -2013,9 +2013,9 @@
       "dense_accuracy_std": 0.005551876559626782,
       "n_seeds_dense": 3,
       "dense_params": 18624,
-      "dense_macs": 7734652,
+      "dense_macs": 8449916,
       "params_vs_reference_pct": 38.39669243986255,
-      "macs_vs_reference_pct": -248.48869735832974,
+      "macs_vs_reference_pct": -248.15915329809198,
       "margin_pp": -5.607942996819815,
       "welch": null,
       "significant_p05": false,
@@ -2045,9 +2045,9 @@
       "dense_accuracy_std": 0.016705089044958724,
       "n_seeds_dense": 5,
       "dense_params": 41500,
-      "dense_macs": 22030580,
+      "dense_macs": 23879924,
       "params_vs_reference_pct": 0.0,
-      "macs_vs_reference_pct": -22.3498791225651,
+      "macs_vs_reference_pct": -23.196187726560602,
       "margin_pp": -0.2878882396221194,
       "welch": null,
       "significant_p05": false,
@@ -2068,9 +2068,9 @@
       "dense_accuracy_std": 0.008311638426527766,
       "n_seeds_dense": 3,
       "dense_params": 32748,
-      "dense_macs": 19859428,
+      "dense_macs": 21437412,
       "params_vs_reference_pct": 0.018321729571268985,
-      "macs_vs_reference_pct": -35.725903082405,
+      "macs_vs_reference_pct": -37.23277791181137,
       "margin_pp": -0.5309584351380681,
       "welch": null,
       "significant_p05": false,
@@ -2091,9 +2091,9 @@
       "dense_accuracy_std": 0.012538075344060297,
       "n_seeds_dense": 3,
       "dense_params": 24140,
-      "dense_macs": 17749620,
+      "dense_macs": 19063924,
       "params_vs_reference_pct": 0.01657000828499955,
-      "macs_vs_reference_pct": -51.858958107272144,
+      "macs_vs_reference_pct": -54.3184708457713,
       "margin_pp": -2.338174016873035,
       "welch": null,
       "significant_p05": false,
@@ -2114,9 +2114,9 @@
       "dense_accuracy_std": 0.005551876559626782,
       "n_seeds_dense": 3,
       "dense_params": 18624,
-      "dense_macs": 7734652,
+      "dense_macs": 8449916,
       "params_vs_reference_pct": 7.0178264604811025,
-      "macs_vs_reference_pct": -248.48869735832974,
+      "macs_vs_reference_pct": -248.15915329809198,
       "margin_pp": -0.8648817821343746,
       "welch": null,
       "significant_p05": false,
@@ -2146,9 +2146,9 @@
       "dense_accuracy_std": 0.005551876559626782,
       "n_seeds_dense": 3,
       "dense_params": 18624,
-      "dense_macs": 7734652,
+      "dense_macs": 8449916,
       "params_vs_reference_pct": 38.39132302405498,
-      "macs_vs_reference_pct": -248.48869735832974,
+      "macs_vs_reference_pct": -248.15915329809198,
       "margin_pp": -3.31169238527616,
       "welch": null,
       "significant_p05": false,
@@ -2178,9 +2178,9 @@
       "dense_accuracy_std": 0.016705089044958724,
       "n_seeds_dense": 5,
       "dense_params": 41500,
-      "dense_macs": 22030580,
+      "dense_macs": 23879924,
       "params_vs_reference_pct": -0.0024096385542238252,
-      "macs_vs_reference_pct": -22.3498791225651,
+      "macs_vs_reference_pct": -23.196187726560602,
       "margin_pp": 0.08257782379785805,
       "welch": {
         "diff_pp": 0.08257782379785805,
@@ -2210,9 +2210,9 @@
       "dense_accuracy_std": 0.008311638426527766,
       "n_seeds_dense": 3,
       "dense_params": 32748,
-      "dense_macs": 19859428,
+      "dense_macs": 21437412,
       "params_vs_reference_pct": 0.0030536215952170487,
-      "macs_vs_reference_pct": -35.725903082405,
+      "macs_vs_reference_pct": -37.23277791181137,
       "margin_pp": 1.2611064203580324,
       "welch": {
         "diff_pp": 1.2611064203580324,
@@ -2242,9 +2242,9 @@
       "dense_accuracy_std": 0.012538075344060297,
       "n_seeds_dense": 3,
       "dense_params": 24140,
-      "dense_macs": 17749620,
+      "dense_macs": 19063924,
       "params_vs_reference_pct": 0.008285004142505326,
-      "macs_vs_reference_pct": -51.858958107272144,
+      "macs_vs_reference_pct": -54.3184708457713,
       "margin_pp": -0.5437695797284314,
       "welch": {
         "diff_pp": -0.5437695797284314,
@@ -2274,9 +2274,9 @@
       "dense_accuracy_std": 0.005551876559626782,
       "n_seeds_dense": 3,
       "dense_params": 18624,
-      "dense_macs": 7734652,
+      "dense_macs": 8449916,
       "params_vs_reference_pct": 7.012457044673537,
-      "macs_vs_reference_pct": -248.48869735832974,
+      "macs_vs_reference_pct": -248.15915329809198,
       "margin_pp": 2.276779057184858,
       "welch": {
         "diff_pp": 2.276779057184858,
@@ -2315,9 +2315,9 @@
       "dense_accuracy_std": 0.005551876559626782,
       "n_seeds_dense": 3,
       "dense_params": 18624,
-      "dense_macs": 7734652,
+      "dense_macs": 8449916,
       "params_vs_reference_pct": 38.39132302405498,
-      "macs_vs_reference_pct": -248.48869735832974,
+      "macs_vs_reference_pct": -248.15915329809198,
       "margin_pp": 1.7393932159741665,
       "welch": {
         "diff_pp": 1.7393932159741665,
@@ -2356,9 +2356,9 @@
       "dense_accuracy_std": 0.016705089044958724,
       "n_seeds_dense": 5,
       "dense_params": 41500,
-      "dense_macs": 22030580,
+      "dense_macs": 23879924,
       "params_vs_reference_pct": 0.048192771084332175,
-      "macs_vs_reference_pct": 16.292748534083078,
+      "macs_vs_reference_pct": 15.814991706003756,
       "margin_pp": -1.855019222497939,
       "welch": {
         "diff_pp": -1.855019222497939,
@@ -2388,9 +2388,9 @@
       "dense_accuracy_std": 0.008311638426527766,
       "n_seeds_dense": 3,
       "dense_params": 32748,
-      "dense_macs": 19859428,
+      "dense_macs": 21437412,
       "params_vs_reference_pct": 0.01221448638084599,
-      "macs_vs_reference_pct": 26.72735085824224,
+      "macs_vs_reference_pct": 26.05704923710007,
       "margin_pp": -1.550390880505248,
       "welch": {
         "diff_pp": -1.550390880505248,
@@ -2420,9 +2420,9 @@
       "dense_accuracy_std": 0.012538075344060297,
       "n_seeds_dense": 3,
       "dense_params": 24140,
-      "dense_macs": 17749620,
+      "dense_macs": 19063924,
       "params_vs_reference_pct": -0.01657000828501065,
-      "macs_vs_reference_pct": 40.01696374344915,
+      "macs_vs_reference_pct": 39.23663879482524,
       "margin_pp": -3.230213852326064,
       "welch": {
         "diff_pp": -3.230213852326064,
@@ -2452,9 +2452,9 @@
       "dense_accuracy_std": 0.005551876559626782,
       "n_seeds_dense": 3,
       "dense_params": 18624,
-      "dense_macs": 7734652,
+      "dense_macs": 8449916,
       "params_vs_reference_pct": 7.028565292096223,
-      "macs_vs_reference_pct": 2.6839216554280676,
+      "macs_vs_reference_pct": 3.2355942946651783,
       "margin_pp": -1.367077016234397,
       "welch": {
         "diff_pp": -1.367077016234397,
@@ -2493,9 +2493,9 @@
       "dense_accuracy_std": 0.005551876559626782,
       "n_seeds_dense": 3,
       "dense_params": 18624,
-      "dense_macs": 7734652,
+      "dense_macs": 8449916,
       "params_vs_reference_pct": 38.2678264604811,
-      "macs_vs_reference_pct": 38.50457654720601,
+      "macs_vs_reference_pct": 38.988600596739666,
       "margin_pp": -0.04467105706533192,
       "welch": {
         "diff_pp": -0.04467105706533192,
@@ -3252,8 +3252,8 @@
       "numbers": {
         "dsp_params": 11497,
         "dense_params": 18624,
-        "dsp_macs": 4756457,
-        "dense_macs": 7734652,
+        "dsp_macs": 5155412,
+        "dense_macs": 8449916,
         "dsp_acc": 0.47328662276268,
         "dsp_std_pp": 0.6989272710880247,
         "dense_acc": 0.47373333333333334,
@@ -3262,7 +3262,7 @@
         "t": -0.08668232383802316,
         "p": 0.9352921179898002,
         "params_pct_fewer": 38.2678264604811,
-        "macs_pct_fewer": 38.50457654720601,
+        "macs_pct_fewer": 38.988600596739666,
         "n_pruned": 3,
         "n_dense": 3
       }
@@ -3407,18 +3407,18 @@
       "id": "unstructured_macs_are_free_of_savings",
       "holds": true,
       "numbers": {
-        "unstructured_macs": 26954388,
-        "dsp_cut_min_pct": 31.583706024661616,
-        "dsp_cut_max_pct": 82.3536808428619
+        "unstructured_macs": 29419156,
+        "dsp_cut_min_pct": 31.665898233110422,
+        "dsp_cut_max_pct": 82.47600305052939
       }
     },
     {
       "id": "macs_budget_is_binding",
       "holds": true,
       "numbers": {
-        "macs": 26954388,
+        "macs": 29419156,
         "budget": 30000000,
-        "pct_of_budget": 89.84796
+        "pct_of_budget": 98.06385333333333
       }
     },
     {
@@ -3427,9 +3427,9 @@
       "numbers": {
         "base24_params": 35062,
         "cm10_params": 32748,
-        "base24_macs": 15452128,
-        "cm10_macs": 19859428,
-        "macs_ratio": 1.285222850859118
+        "base24_macs": 16855776,
+        "cm10_macs": 21437412,
+        "macs_ratio": 1.271814006071272
       }
     },
     {
@@ -3437,9 +3437,9 @@
       "holds": true,
       "numbers": {
         "sparsity": 0.85,
-        "snip_macs_cut_pct": 74.13262236436853,
-        "imp_macs_cut_pct": 85.19565719689129,
-        "lag_pp": 11.063034832522757,
+        "snip_macs_cut_pct": 74.60992649369909,
+        "imp_macs_cut_pct": 85.1802002749501,
+        "lag_pp": 10.570273781251005,
         "imp_n_seeds": 1,
         "snip_n_seeds": 3
       }
@@ -3452,102 +3452,102 @@
           "SNIP": [
             {
               "size_kb": 81.056640625,
-              "spread_pct": 0.5768318820573592,
+              "spread_pct": 0.5547112942871788,
               "values": [
-                20436884,
-                20355476,
-                20319380
+                22192436,
+                22107508,
+                22069716
               ]
             },
             {
               "size_kb": 63.958984375,
-              "spread_pct": 0.9143433640231857,
+              "spread_pct": 0.8821345514286646,
               "values": [
-                17187988,
-                17101204,
-                17031572
+                18610580,
+                18520180,
+                18447156
               ]
             },
             {
               "size_kb": 47.14453125,
-              "spread_pct": 1.5354906628266285,
+              "spread_pct": 1.4961367393286908,
               "values": [
-                13664148,
-                13543316,
-                13456020
+                14743092,
+                14615284,
+                14524244
               ]
             },
             {
               "size_kb": 33.82421875,
-              "spread_pct": 1.4997425809182432,
+              "spread_pct": 1.4771744012718668,
               "values": [
-                10366100,
-                10352532,
-                10211476
+                11146900,
+                11131316,
+                10983124
               ]
             },
             {
               "size_kb": 22.41015625,
-              "spread_pct": 2.7684037714452905,
+              "spread_pct": 2.683536829283139,
               "values": [
-                7008404,
-                7050900,
-                6857876
+                7508244,
+                7550420,
+                7349972
               ]
             }
           ],
           "DSP": [
             {
               "size_kb": 81.015625,
-              "spread_pct": 0.49558614970325493,
+              "spread_pct": 0.4592277214366028,
               "values": [
-                18456468,
-                18479252,
-                18387860
+                20119476,
+                20141396,
+                20049076
               ]
             },
             {
               "size_kb": 63.953125,
-              "spread_pct": 0.39935321345834257,
+              "spread_pct": 0.3886078678289126,
               "values": [
-                14572692,
-                14567316,
-                14514580
+                15874388,
+                15867188,
+                15812788
               ]
             },
             {
               "size_kb": 47.155598958333336,
-              "spread_pct": 1.0868281571948453,
+              "spread_pct": 1.0342647386696295,
               "values": [
-                10694292,
-                10667412,
-                10578580
+                11633236,
+                11604980,
+                11513428
               ]
             },
             {
               "size_kb": 33.818359375,
-              "spread_pct": 4.979155208009502,
+              "spread_pct": 4.7699564753212575,
               "values": [
-                7717268,
-                7342484,
-                7521428
+                8374132,
+                7984116,
+                8171284
               ]
             },
             {
               "size_kb": 22.455729166666668,
-              "spread_pct": 4.768591077448959,
+              "spread_pct": 4.567161654587451,
               "values": [
-                4852628,
-                4625812,
-                4790932
+                5255412,
+                5019956,
+                5190868
               ]
             }
           ]
         },
-        "snip_max_spread_pct": 2.7684037714452905,
-        "dsp_max_spread_pct": 4.979155208009502,
-        "snip_deepest_spread_pct": 2.7684037714452905,
-        "dsp_deepest_spread_pct": 4.768591077448959
+        "snip_max_spread_pct": 2.683536829283139,
+        "dsp_max_spread_pct": 4.7699564753212575,
+        "snip_deepest_spread_pct": 2.683536829283139,
+        "dsp_deepest_spread_pct": 4.567161654587451
       }
     },
     {
@@ -3557,36 +3557,36 @@
         "deviations": [
           {
             "target": 0.3362,
-            "dsp_macs": 18441193,
-            "base_family_macs": 18282056.11009737,
-            "rel_dev_pct": 0.8704540066187372
+            "dsp_macs": 20103316,
+            "base_family_macs": 19946773.96212528,
+            "rel_dev_pct": 0.7847987758419439
           },
           {
             "target": 0.486,
-            "dsp_macs": 14551529,
-            "base_family_macs": 14363850.267429128,
-            "rel_dev_pct": 1.3066046295152844
+            "dsp_macs": 15851455,
+            "base_family_macs": 15670425.989049762,
+            "rel_dev_pct": 1.155227120671376
           },
           {
             "target": 0.6333,
-            "dsp_macs": 10646761,
-            "base_family_macs": 10326236.591799488,
-            "rel_dev_pct": 3.1039808680643155
+            "dsp_macs": 11583881,
+            "base_family_macs": 11272664.94756053,
+            "rel_dev_pct": 2.7608028260151407
           },
           {
             "target": 0.75,
-            "dsp_macs": 7527060,
-            "base_family_macs": 7181044.6309099365,
-            "rel_dev_pct": 4.818454512880788
+            "dsp_macs": 8176511,
+            "base_family_macs": 7844959.955665789,
+            "rel_dev_pct": 4.226293648506885
           },
           {
             "target": 0.85,
-            "dsp_macs": 4756457,
-            "base_family_macs": 4720473.451867928,
-            "rel_dev_pct": 0.7622868447196396
+            "dsp_macs": 5155412,
+            "base_family_macs": 5156163.725003876,
+            "rel_dev_pct": -0.014579153106220044
           }
         ],
-        "max_abs_rel_dev_pct": 4.818454512880788
+        "max_abs_rel_dev_pct": 4.226293648506885
       }
     },
     {
