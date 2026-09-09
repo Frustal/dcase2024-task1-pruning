@@ -9,6 +9,11 @@ cache/
 # Generated at import time by training/dataset_loader.py
 training/_generated_dcase24.py
 
+# Narrative report rendered from reports/results.json by experiments.collect_results.
+# Not tracked: the README carries the findings, and a generated prose file in git only
+# invites edits that the next regeneration silently discards.
+reports/results.md
+
 # Experiment tracking
 wandb/
 mlruns/
