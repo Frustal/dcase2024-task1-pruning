@@ -70,8 +70,8 @@ that number is stated.
 **Almost nothing here is statistically significant, and that is a result.** The pooled
 seed-to-seed standard deviation is 1.29 pp over 30 degrees of freedom. With three seeds a side,
 a margin has to reach 2.93 pp before Welch's test can reject at α = 0.05. Exactly one does.
-Several conclusions drawn from single-seed data earlier in the project reversed sign once more
-seeds landed, including two changes of sign; the generated report lists them under
+Four conclusions drawn from single-seed data earlier in the project failed once more seeds
+landed, two of them because the margin they rested on changed sign; the report lists them under
 **Retractions** rather than quietly dropping them. Every accuracy here is on the development-test
 split, which the project consulted while deciding what to run next — these are development-set
 results, not a confirmation on held-out evaluation data.
