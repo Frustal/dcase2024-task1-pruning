@@ -292,7 +292,7 @@ def fig_accuracy_vs_params(res: dict) -> list[Path]:
                     xy=(0.985, pub["accuracy"]), xycoords=("axes fraction", "data"),
                     xytext=(0, 4), textcoords="offset points", ha="right", va="bottom",
                     fontsize=6.2, color="#777777", zorder=8)
-        ax.annotate("no dense model exists at these sizes", xy=(smallest_exact, 0.925),
+        ax.annotate("no dense model at\na pruned model's size", xy=(smallest_exact, 0.925),
                     xycoords=("data", "axes fraction"), xytext=(-5, 0),
                     textcoords="offset points", ha="right", va="top", fontsize=6.2,
                     color="#777777", zorder=8)
