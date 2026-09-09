@@ -121,6 +121,16 @@ FIG2_LABEL_OFFSETS = {
 }
 
 RC = {
+    # Computer Modern, to match the thesis body text. The thesis is typeset under the JKU
+    # template's `nofancyfonts' branch (Latin Modern / CM), and DejaVu Sans axis labels beside
+    # CM body text read as a foreign object on the page. "cmr10" ships with matplotlib, so no
+    # system font install is needed; DejaVu Serif is the per-glyph fallback for anything cmr10
+    # lacks. cmr10 has no U+2212, hence unicode_minus off.
+    "font.family": "serif",
+    "font.serif": ["cmr10", "DejaVu Serif"],
+    "mathtext.fontset": "cm",
+    "axes.formatter.use_mathtext": True,
+    "axes.unicode_minus": False,
     "font.size": 9,
     "axes.titlesize": 10,
     "axes.labelsize": 9,
@@ -337,10 +347,11 @@ def fig_accuracy_vs_macs(res: dict) -> list[Path]:
                     continue
                 label_dense(ax, r["macs"], r, FIG2_LABEL_OFFSETS, colour)
 
-        # DSP: real, deployable MACs. Its x position is itself a mean -- a DSP seed re-runs the
+        # DSP: calculated packed-shape MACs; the packing itself is not implemented. Its x
+        # position is itself a mean -- a DSP seed re-runs the
         # filter grouping, so different seeds land at different compute costs.
         x, y, n, sd = curve_series(res, "DSP", "macs_executed")
-        seed_series(ax, x, y, n, sd, STYLE["DSP"], label="DSP, real MACs (n=3)")
+        seed_series(ax, x, y, n, sd, STYLE["DSP"], label="DSP, packed-shape MACs (n=3)")
 
         # IMP and SNIP execute a constant MAC count, since masking changes no tensor shape,
         # so each is a vertical stack at the dense baseline. The hollow dotted series beside
@@ -350,7 +361,7 @@ def fig_accuracy_vs_macs(res: dict) -> list[Path]:
             nseeds = res["curves"][method]["n_seeds"]
             x, y, n, sd = curve_series(res, method, "macs_executed")
             seed_series(ax, x, y, n, sd, st, line=False,
-                        label=f"{method}, real MACs (constant, n={nseeds})")
+                        label=f"{method}, MACs executed (constant, n={nseeds})")
             xh, yh, nh, sdh = curve_series(res, method, "macs_nonzero")
             ax.plot(xh, yh, color=st["color"], marker=st["marker"], linestyle=(0, (1, 2)),
                     markersize=6, markerfacecolor="none", markeredgewidth=1.1, alpha=0.85,
@@ -384,8 +395,10 @@ def fig_accuracy_vs_macs(res: dict) -> list[Path]:
                   frameon=False, columnspacing=1.2, handlelength=2.2, labelspacing=0.3)
 
         _footer(fig, -0.19,
-                 "Filled markers with bars are what the deployed model actually executes, "
-                 "averaged over three seeds; IMP's and SNIP's sit in a single vertical stack "
+                 "Filled markers with bars are what the tensor shapes cost: dense execution "
+                 "for IMP, SNIP and the dense references, calculated packed shapes for DSP, "
+                 "whose packing is not implemented. Averaged over three seeds; IMP's and "
+                 "SNIP's sit in a single vertical stack "
                  "because masking changes no tensor shape, and IMP's are hollow because IMP is a "
                  "single run. Hollow, dotted markers are what their surviving weights WOULD cost "
                  "if every zero could be skipped -- unreachable without sparse kernels, which are "
@@ -418,7 +431,7 @@ def fig_macs_vs_params(res: dict) -> list[Path]:
                             xytext=dxy, ha=ha, fontsize=6, color=colour, zorder=6)
 
         # No seed encoding on this figure: both axes are architecture, not accuracy. The one place
-        # the seed shows is DSP, whose executed MACs differ between seeds because its seed re-runs
+        # the seed shows is DSP, whose packed-shape MACs differ between seeds because its seed re-runs
         # the filter grouping -- so DSP gets a vertical min/max bar and the others do not.
         for method in ("IMP-150", "SNIP", "DSP"):
             st = STYLE[method]
@@ -426,7 +439,7 @@ def fig_macs_vs_params(res: dict) -> list[Path]:
             xs = [l["params_nonzero"] for l in levels]
             ax.plot(xs, [l["macs_executed"] for l in levels],
                     color=st["color"], marker=st["marker"], linestyle=st["ls"],
-                    label=f"{method}, executed", zorder=st["zorder"])
+                    label=("DSP, packed-shape MACs" if method == "DSP" else f"{method}, executed"), zorder=st["zorder"])
             if res["curves"][method]["structured"]:
                 lo = [l["macs_executed"] - min(l["macs_executed_values"]) for l in levels]
                 hi = [max(l["macs_executed_values"]) - l["macs_executed"] for l in levels]
@@ -456,7 +469,7 @@ def fig_macs_vs_params(res: dict) -> list[Path]:
         dsp_spread = max(l["macs_star_spread_pct"] for l in res["curves"]["DSP"]["levels"])
         _footer(fig, -0.15,
                  f"IMP and SNIP execute a flat {src['macs'] / 1e6:.2f}M MACs at every level -- "
-                 "the horizontal line at the top. DSP's executed MACs track the base_channels "
+                 "the horizontal line at the top. DSP's packed-shape MACs track the base_channels "
                  f"dense family to within {_dsp_track_dev(res):.1f}% at every level, which is the "
                  "sense in which structured pruning recovers a real architecture rather than a "
                  f"mask; the bars on DSP are its min-max range over three seeds, up to "
@@ -574,7 +587,7 @@ def fig_seed_scatter(res: dict) -> list[Path]:
                                       edgecolor="none"))
 
             ax.invert_xaxis()
-            ax.set_xlabel("model size (KB, fp16)")
+            ax.set_xlabel("fp16 payload (KiB)")
             ax.set_title(f"{method}, {res['curves'][method]['n_seeds']} seeds -- mean per-level "
                          f"s.d. "
                          f"{sum(l['accuracy_spread_pp'] for l in levels) / len(levels):.2f} pp",
@@ -610,7 +623,7 @@ def fig_seed_scatter(res: dict) -> list[Path]:
 # --------------------------------------------------------------------------------------------
 
 def _dsp_track_dev(res: dict) -> float:
-    """Max relative deviation of DSP's executed MACs from the base_channels dense family."""
+    """Max relative deviation of DSP's packed-shape MACs from the base_channels dense family."""
     f = next(x for x in res["findings"] if x["id"] == "dsp_macs_track_base_channels_family")
     return f["numbers"]["max_abs_rel_dev_pct"]
 
@@ -626,7 +639,7 @@ def _param_axis(ax, res: dict) -> None:
     bytes_per = res["constants"]["fp16_bytes_per_param"]
     sec = ax.secondary_xaxis("top", functions=(lambda p: p * bytes_per / 1024,
                                               lambda kb: kb * 1024 / bytes_per))
-    sec.set_xlabel("model size (KB, fp16)", fontsize=8)
+    sec.set_xlabel("fp16 payload (KiB)", fontsize=8)
     sec.tick_params(labelsize=7.5)
 
 

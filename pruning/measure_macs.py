@@ -4,14 +4,19 @@ The rest of the thesis compares methods on parameter count, which hides the larg
 difference between them. IMP and SNIP are unstructured: a zeroed weight keeps its place in the
 tensor, the convolution still multiplies by it, and MACs stay at the dense figure at every
 sparsity level. DSP is structured: it removes whole (filter-group, input-channel) connections
-that collapse into a grouped convolution, so its zeros really do leave the computation. Hence two
+that could collapse into a grouped convolution, so its zeros can leave the computation. Hence two
 numbers per model:
 
-  macs_dense       what the tensor shapes cost, i.e. what actually runs today.
-  macs_structural  what the non-zero weights cost: equal to macs_dense for a dense model, the
-                   deployable figure for DSP, and for IMP and SNIP a hypothetical reachable only
-                   with sparse kernels, which are out of scope here. Label it as such wherever
-                   it is reported.
+  macs_dense       what the tensor shapes cost, i.e. what actually runs today. Every checkpoint
+                   on disk is a full-size masked model, DSP's included, so this is what any of
+                   them executes as stored.
+  macs_structural  what the non-zero weights cost. Equal to macs_dense for a dense model. For
+                   DSP it is the calculated packed-shape count: its zeros arrive in whole
+                   structures, so the tensors could be rebuilt at that smaller shape -- but the
+                   packing is not implemented here and nothing was deployed or timed, so the
+                   figure is arithmetic, not a measurement. For IMP and SNIP it is not even
+                   reachable in principle without sparse kernels, which are out of scope. Label
+                   it wherever it is reported; never call it deployed compute.
 
 The convention matches nessi/torchinfo, so the numbers compare with what run_training.py logs:
 ``weight.numel() * out_H * out_W`` for a Conv2d, ``weight.numel()`` for a Linear, its affine
@@ -34,11 +39,11 @@ from pathlib import Path
 
 import torch
 import torch.nn as nn
+import torchaudio
 import yaml
 
 from baseline.helpers import nessi
 from baseline.models.baseline import get_model
-from baseline.models.mel import AugmentMelSTFT
 from pruning.sparsity import count_params
 
 REPO = Path(__file__).resolve().parent.parent
@@ -56,16 +61,31 @@ MODEL_KEYS = ("n_classes", "in_channels", "base_channels", "channels_multiplier"
 def mel_input_shape(cfg: dict) -> tuple[int, ...]:
     """Shape of the log-mel tensor the CP-Mobile model actually receives.
 
-    Derived from the config's mel settings and a one-second clip rather than hardcoded, so it
-    tracks configs/*.yaml. freqm/timem are 0: SpecAugment changes values, never shape.
+    This must mirror ``PLModule.mel`` in training/run_training.py exactly, because the time
+    dimension it produces multiplies every convolution's MAC count. The pipeline is
+    ``Resample(orig_sample_rate -> sample_rate)`` followed by ``torchaudio`` MelSpectrogram, fed
+    one second of audio at the dataset's native rate. Derived from the config rather than
+    hardcoded so it tracks configs/*.yaml. SpecAugment (freqm/timem) is omitted: its masks change
+    values, never shape.
+
+    ``baseline.models.mel.AugmentMelSTFT`` must NOT be substituted here. It is dead code in this
+    repo, instantiated nowhere in the training or evaluation path, and its pre-emphasis
+    ``conv1d`` (kernel 2, no padding) drops one input sample, which costs one mel frame: 64
+    instead of 65 for a one-second clip. That undercounts the baseline at 26,954,388 MACs
+    against the official DCASE figure of 29,419,156, an 8.4 % error that propagates into every
+    MAC in the report.
     """
-    mel = AugmentMelSTFT(
-        n_mels=cfg["n_mels"], sr=cfg["sample_rate"], win_length=cfg["window_length"],
-        hopsize=cfg["hop_length"], n_fft=cfg["n_fft"], freqm=0, timem=0,
-        fmin=cfg["f_min"], fmax=cfg["f_max"],
+    pipeline = nn.Sequential(
+        torchaudio.transforms.Resample(orig_freq=cfg["orig_sample_rate"],
+                                       new_freq=cfg["sample_rate"]),
+        torchaudio.transforms.MelSpectrogram(
+            sample_rate=cfg["sample_rate"], n_fft=cfg["n_fft"],
+            win_length=cfg["window_length"], hop_length=cfg["hop_length"],
+            n_mels=cfg["n_mels"], f_min=cfg["f_min"], f_max=cfg["f_max"],
+        ),
     ).eval()
     with torch.no_grad():
-        out = mel(torch.zeros(1, int(cfg["sample_rate"] * CLIP_SECONDS)))
+        out = pipeline(torch.zeros(1, int(cfg["orig_sample_rate"] * CLIP_SECONDS)))
     return (1, 1, out.shape[1], out.shape[2])
 
 

@@ -285,7 +285,10 @@ def _f_significance(n: dict, res: dict) -> str:
         f"margins with a testable seed sample on both sides, exactly {n['n_significant']} clears "
         f"that bar: {sig['method']} at {sig['size_kb']:.2f} KB, {pp(sig['margin_pp'])} pp, "
         f"t={sig['t']:.2f} on {sig['df']:.1f} df, p={sig['p']:.3f} -- and it is a NEGATIVE result "
-        "(see below). Every other margin in this report, including the ones whose direction is "
+        "(see below). That p is NOMINAL and unadjusted: these margins are a family of tests, not "
+        "one pre-specified test, so treat the inference as exploratory and the split as "
+        "development data rather than held-out evaluation data. Every other margin in this "
+        "report, including the ones whose direction is "
         "consistent across all three seeds, must be written as *consistent in direction, inside "
         "the noise floor*, never as *significantly better*. Reaching p<0.05 on a margin of around "
         f"1.3 pp at this scatter would need roughly {n['seeds_needed_for_1_3pp']} seeds per side, "
@@ -398,15 +401,19 @@ def _f_snip_matches(n: dict, res: dict) -> str:
 
 def _f_dsp_pareto(n: dict, res: dict) -> str:
     return (
-        f"**DSP's real Pareto claim is at {res['curves']['DSP']['levels'][-1]['size_kb']:.0f} KB: "
-        "equal accuracy on roughly two-thirds the size and two-thirds the compute.** Against the "
+        f"**DSP's strongest resource claim is at {res['curves']['DSP']['levels'][-1]['size_kb']:.0f} KB: "
+        "roughly two-thirds the size and two-thirds the calculated compute, with no statistically "
+        "detectable accuracy difference.** Against the "
         f"measured base=16 dense model, DSP scores {acc(n['dsp_acc'])} (s.d. {n['dsp_std_pp']:.2f} pp "
         f"over {n['n_pruned']} seeds) against {acc(n['dense_acc'])} (s.d. {n['dense_std_pp']:.2f} "
         f"pp over {n['n_dense']}) -- a difference of {n['margin_pp']:+.2f} pp with t={n['t']:.2f}, "
-        f"p={n['p']:.2f}, which is as close to an exact tie as this study produces. It gets that "
-        f"tie on {num(n['dsp_params'])} parameters against {num(n['dense_params'])} "
-        f"({n['params_pct_fewer']:.0f}% fewer) and {num(n['dsp_macs'])} MACs against "
-        f"{num(n['dense_macs'])} ({n['macs_pct_fewer']:.0f}% fewer). This is the claim DSP should "
+        f"p={n['p']:.2f}. The test establishes no difference, not equality: observed accuracy is "
+        "slightly lower, so this is neither strict Pareto dominance nor demonstrated equivalence. "
+        f"It reaches that on {num(n['dsp_params'])} parameters against {num(n['dense_params'])} "
+        f"({n['params_pct_fewer']:.0f}% fewer) and {num(n['dsp_macs'])} calculated packed-shape "
+        f"MACs against base=16's {num(n['dense_macs'])} executed MACs "
+        f"({n['macs_pct_fewer']:.0f}% fewer; DSP's packing is not implemented and nothing was "
+        "deployed). This is the claim DSP should "
         "be argued on, and it plays to structured pruning's actual strength -- the compute axis -- "
         "rather than to an accuracy margin that was always inside the noise. It also happens to "
         "be DSP's tightest point across seeds, so it is the part of DSP's curve that is best "
@@ -501,7 +508,8 @@ def _f_unstructured(n: dict, res: dict) -> str:
         "any tensor's shape, so the convolution still performs the multiplication. A reader who "
         "sees an 85% parameter reduction and assumes an 85% inference speed-up is wrong by the "
         "entire amount. DSP, whose removals collapse into a grouped convolution of smaller shape, "
-        f"cuts real MACs by {n['dsp_cut_min_pct']:.1f}% to {n['dsp_cut_max_pct']:.1f}% across the "
+        f"cuts calculated packed-shape MACs by {n['dsp_cut_min_pct']:.1f}% to "
+        f"{n['dsp_cut_max_pct']:.1f}% across the "
         f"same five levels ({per_level}). The parameter axis on which the rest of this chapter "
         "compares the three methods is the challenge's own budget and is fair to all of them, but "
         "it is silent on this difference, and the difference is the practical one."
@@ -575,7 +583,7 @@ def _f_macs_star_seeds(n: dict, res: dict) -> str:
         "global top-k hits it exactly -- but WHICH weights survive is not, and the surviving "
         "weights sit in layers of very different spatial extent. SNIP's hypothetical MACs* "
         f"therefore spreads across its three seeds by {snip}, growing with sparsity as the mask "
-        "gets more room to differ. For DSP the same spread is a spread in REAL, deployed compute, "
+        "gets more room to differ. For DSP the same spread is a spread in packed-shape compute, "
         "because the seed changes the architecture and not just the mask: "
         f"{dsp}. A DSP model at the deepest level can cost "
         f"{n['dsp_deepest_spread_pct']:.1f}% more or less compute depending on nothing but the "
@@ -589,7 +597,7 @@ def _f_dsp_tracks_base(n: dict, res: dict) -> str:
     devs = sorted(abs(d["rel_dev_pct"]) for d in n["deviations"])
     return (
         "**DSP does not just shrink the model, it lands on the architecture family.** DSP's "
-        "executed MACs, averaged over its three seeds, sit within "
+        "calculated packed-shape MACs, averaged over its three seeds, sit within "
         f"{n['max_abs_rel_dev_pct']:.1f}% of the base_channels dense curve at every one of the "
         f"five levels and within {devs[-2]:.1f}% at four of them, interpolated at each level's "
         "own parameter count. That is a stronger statement than 'structured pruning saves "
@@ -788,9 +796,9 @@ def render_report(res: dict) -> str:
 The official DCASE 2024 baseline (CP-Mobile, `base_channels=32`, `cm=1.8`,
 `expansion_rate=2.1`, {num(src['params'])} parameters, {src['size_kb']:.2f} KB in fp16) is pruned
 down past its own size by three methods -- IMP, SNIP and DSP -- and each pruned model is compared
-against a *dense model of the same parameter count trained from scratch*. That comparison is a
-direct test of the Lottery Ticket Hypothesis claim that a pruned subnetwork beats an
-equivalently-sized dense network.
+against a *dense model of the same parameter count trained from scratch*. That asks whether
+pruning offers an accuracy advantage over the compact dense control a practitioner could simply
+have trained instead. It does not establish or refute the Lottery Ticket Hypothesis in general.
 
 **Two numbers exist for cm=1.8 and they must never be conflated.**
 
@@ -823,8 +831,11 @@ The dense references, per seed:
 {dense_seed_table(res)}
 
 Pooling every point trained at more than one seed -- {stats['n_points_pooled']} points,
-{stats['pooled_dof']} degrees of freedom -- gives a within-point sample standard deviation of
-**{stats['pooled_seed_sd_pp']:.2f} pp**. With three seeds on each side of a comparison, a measured
+{stats['pooled_dof']} degrees of freedom -- gives a *pooled within-configuration sample standard
+deviation* of **{stats['pooled_seed_sd_pp']:.2f} pp**. That is what "noise floor" abbreviates
+throughout this report: a descriptive summary of how far two runs of the same configuration drift
+apart here, not an estimate of some universal seed noise for the task. With three seeds on each
+side of a comparison, a measured
 margin therefore has to reach about **{stats['detectable_margin_pp_n3']:.2f} pp** before Welch's
 unequal-variance t-test can reject at alpha={res['constants']['alpha']:.2f}; at five seeds a side
 it would still need {stats['detectable_margin_pp_n5']:.2f} pp. A margin of around 1.3 pp -- which
@@ -834,6 +845,14 @@ is the size of most of the interesting ones here -- would need roughly
 Exactly one comparison in this report clears p<{res['constants']['alpha']:.2f}. Everything else is
 written as *consistent in direction across seeds, inside the noise floor*, and the word
 "significantly" is not used for it.
+
+Two qualifications go with that one result. The {sum(1 for m in res['margins'] if m['welch'])} pruned-vs-dense
+comparisons are a family, and no multiple-testing correction is applied, so every p-value here is
+**nominal and unadjusted** and the inference is exploratory -- at that many tests one nominal
+p<{res['constants']['alpha']:.2f} is close to what chance alone would produce. And every accuracy
+in this report is on the development-test split, which the project consulted repeatedly while
+deciding what to run next: these are **development-set results**, not a confirmation on the
+challenge's held-out evaluation data.
 
 **Excluded.** `{excl['label']}` (run `{excl['run_id']}`, {acc(excl['accuracy'])}) {excl['reason']}.
 It is not part of the dense curve in any table or figure.
